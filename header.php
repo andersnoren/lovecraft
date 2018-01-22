@@ -137,13 +137,20 @@
 		
 		<?php else : 
 
-			$header_image = get_header_image() ? get_header_image() : get_template_directory_uri() . '/images/header.jpg';
+			if ( get_header_image() ) {
+				$header_image = get_header_image();
+				$header_image_data = get_theme_mod( 'header_image_data' );
+				$header_image_alt = get_post_meta( $header_image_data->attachment_id, '_wp_attachment_image_alt', true );
+			} else {
+				$header_image = get_template_directory_uri() . '/images/header.jpg';
+				$header_image_alt = get_bloginfo( 'name' );
+			}
 			
 			?>
 		
-			<div class="header-image bg-image" style="background-image: url( <?php echo $header_image ?> );">
+			<div class="header-image bg-image" style="background-image: url( <?php echo esc_url( $header_image ); ?> );">
 				
-				<img src="<?php echo $header_image; ?>" />
+				<img src="<?php echo esc_url( $header_image ); ?>"<?php if ( $header_image_alt ) : ?> alt="<?php echo esc_attr( $header_image_alt ); ?>"<?php endif; ?> />
 				
 			</div>
 		

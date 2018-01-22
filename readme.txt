@@ -45,6 +45,11 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 == Changelog ==
 
+Version 1.21 (2017-01-21)
+-------------------------
+- Fixed layout issue with the website field label in the comment form in some browsers
+- Added alt text to header image, extra escapes of values at output
+
 Version 1.20 (2017-12-05)
 -------------------------
 - Fixed recent posts widget showing currently viewed post regardless of date

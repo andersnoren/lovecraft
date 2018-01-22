@@ -5,7 +5,7 @@
 	Theme Name: Lovecraft
     Text Domain: lovecraft
 	Theme URI: http://www.andersnoren.se/teman/lovecraft-wordpress-theme/
-	Version: 1.20
+	Version: 1.21
 	Description: Lovecraft is a beautiful two-column theme for bloggers. It features a responsive design, great typography, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, a Flickr widget, recent posts and recent comments widgets with thumbnails, and a full-width template. Demo: http://www.andersnoren.se/themes/lovecraft/
 	Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 	Author: Anders Norén
@@ -1473,6 +1473,10 @@ div.comment { margin-top: 25px; }
 }
 
 .comment-form-email { float: right; }
+
+.comment-form-url {
+	clear: both;
+}
 
 .comment-respond input,
 .comment-respond textarea {
