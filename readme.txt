@@ -45,7 +45,14 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 == Changelog ==
 
-Version 1.21 (2017-01-21)
+Version 1.22 (2018-04-21)
+-------------------------
+- Added a Customizer setting for displaying the sidebar on tablet and mobile
+- Fixed errors pointed out by Theme Sniffer
+- Cleaned up the CSS a bit
+- Code review with the Theme Sniffer WordPress-Extra ruleset
+
+Version 1.21 (2018-01-21)
 -------------------------
 - Fixed layout issue with the website field label in the comment form in some browsers
 - Added alt text to header image, extra escapes of values at output

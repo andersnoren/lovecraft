@@ -5,7 +5,7 @@
 	Theme Name: Lovecraft
     Text Domain: lovecraft
 	Theme URI: http://www.andersnoren.se/teman/lovecraft-wordpress-theme/
-	Version: 1.21
+	Version: 1.22
 	Description: Lovecraft is a beautiful two-column theme for bloggers. It features a responsive design, great typography, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, a Flickr widget, recent posts and recent comments widgets with thumbnails, and a full-width template. Demo: http://www.andersnoren.se/themes/lovecraft/
 	Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 	Author: Anders Norén
@@ -151,10 +151,6 @@ body a,
 .post-tags a:before,
 .tagcloud a,
 .tagcloud a:before {
-	-webkit-transition: all 0.1s ease-in-out;
-	 -moz-transition: all 0.1s ease-in-out;
-	 -ms-transition: all 0.1s ease-in-out;
-	 -o-transition: all 0.1s ease-in-out;
 	 transition: all 0.1s ease-in-out;
 }
 
@@ -169,18 +165,10 @@ body a,
 #infinite-handle span,
 .main-menu > .menu-item-has-children a,
 .main-menu > .menu-item-has-children > a::after {
-	-webkit-transition: all 0.2s ease-in-out;
-	 -moz-transition: all 0.2s ease-in-out;
-	 -ms-transition: all 0.2s ease-in-out;
-	 -o-transition: all 0.2s ease-in-out;
 	 transition: all 0.2s ease-in-out;
 }
 
 .nav-toggle .bar {
-	-webkit-transition: all 0.3s ease-in-out;
-	 -moz-transition: all 0.3s ease-in-out;
-	 -ms-transition: all 0.3s ease-in-out;
-	 -o-transition: all 0.3s ease-in-out;
 	 transition: all 0.3s ease-in-out;
 }
 
@@ -239,13 +227,7 @@ body a,
 .bg-dark { background-color: #111; }
 
 .bg-image { 
-	-webkit-background-size: 100%; 
-    -moz-background-size: 100%; 
-    -o-background-size: 100%; 
     background-size: 100%; 
-    -webkit-background-size: cover; 
-    -moz-background-size: cover; 
-    -o-background-size: cover; 
     background-size: cover; 
     background-position: center;
 }
@@ -418,11 +400,7 @@ body a,
 	opacity: 0;
 	z-index: 999;
 	padding-top: 16px;
-	-webkit-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
-	 -moz-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
-	 -ms-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
-	 -o-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
-	 transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
 }
 
 .main-menu > li > ul:before {
@@ -464,8 +442,6 @@ body a,
 	display: block;
 	padding: 20px;
 	line-height: 130%;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	border-bottom: 1px solid rgba(255,255,255,0.1);
 	color: #fff;
@@ -965,8 +941,6 @@ code, kbd, pre {
 .post-content code {
 	padding: 5px;
 	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
 }
 
 .post-content dl { line-height: 160%; }
@@ -1165,6 +1139,7 @@ code, kbd, pre {
 	color: #111;
 	background: #fafafa;
 	border-radius: 0;
+	-moz-appearance: none;
 	-webkit-appearance: none;
 }
 
@@ -1642,7 +1617,7 @@ div.comment { margin-top: 25px; }
 	text-shadow: 1px 0 0 rgba(0,0,0,0.2);
 }
 
-.page-title span { color: rgba(255,255,255,0.8); }
+.page-title span:not(.vcard) { color: rgba(255,255,255,0.8); }
 
 .page-title + .posts > .post:first-child { border-top: none; }
 
@@ -1702,9 +1677,9 @@ div.comment { margin-top: 25px; }
 	color: #fff;
 }
 
-.infinite-loader .spinner { display: inline-block; }
-
-#infinite-handle span button { -webkit-font-smoothing: antialiased; }
+.infinite-loader .spinner { 
+	display: inline-block; 
+}
 
 
 /* -------------------------------------------------------------------------------- */
@@ -2090,17 +2065,23 @@ div.comment { margin-top: 25px; }
 	
 	/* Structure --------------------------------------- */
 	
-	
 	.content { 
 		width: 100%; 
 		float: none;
 	}
 	
-	.sidebar { display: none; }
+	.sidebar { 
+		display: none; 
+		margin: 60px 0 0;
+		width: 100%;
+	}
+
+	.show-mobile-sidebar .sidebar {
+		display: block;
+	}
 
 	
 	/* Navigation --------------------------------------- */
-	
 	
 	.navigation > .section-inner { max-width: 100%; }
 	
@@ -2133,9 +2114,6 @@ div.comment { margin-top: 25px; }
 		left: 50%;
 		margin-left: -15px;
 		top: 50%;
-		-webkit-transition: opacity 0.2s linear 0.2s, margin 0.2s linear 0.2s, -webkit-transform 0.2s linear 0s;
-		-moz-transition: opacity 0.2s linear 0.2s, margin 0.2s linear 0.2s, -moz-transform 0.2s linear 0s;
-		-o-transition: opacity 0.2s linear 0.2s, margin 0.2s linear 0.2s, -o-transform 0.2s linear 0s;
 		transition: opacity 0.2s linear 0.2s, margin 0.2s linear 0.2s, transform 0.2s linear 0s;
 	}
 	
@@ -2145,9 +2123,6 @@ div.comment { margin-top: 25px; }
 	
 	.nav-toggle.active .bar { 
 		background: #ca2017; 
-		-webkit-transition: opacity 0.2s linear 0s, margin 0.2s linear 0s, -webkit-transform 0.2s linear 0.2s;
-		-moz-transition: opacity 0.2s linear 0s, margin 0.2s linear 0s, -moz-transform 0.2s linear 0.2s;
-		-o-transition: opacity 0.2s linear 0s, margin 0.2s linear 0s, -o-transform 0.2s linear 0.2s;
 		transition: opacity 0.2s linear 0s, margin 0.2s linear 0s, transform 0.2s linear 0.2s;
 	}
 	
@@ -2155,20 +2130,14 @@ div.comment { margin-top: 25px; }
 	.nav-toggle.active .bar:nth-child(3) { margin-top: -2px; }
 	
 	.nav-toggle.active .bar:nth-child(1) {
-		-webkit-transform: rotate(45deg);
-		-moz-transform: rotate(45deg);
 		transform: rotate(45deg);
 	}
 	
 	.nav-toggle.active .bar:nth-child(2) { 
-		-webkit-opacity: 0;
-		-moz-opacity: 0;
 		opacity: 0; 
 	}
 	
 	.nav-toggle.active .bar:nth-child(3) {
-		-webkit-transform: rotate(-45deg);
-		-moz-transform: rotate(-45deg);
 		transform: rotate(-45deg);
 	}
 	
@@ -2461,10 +2430,17 @@ div.comment { margin-top: 25px; }
 
 
 @media ( max-width: 500px ) {
+
+
+	/* Structure --------------------------------------- */
+
+	.sidebar {
+		margin: 40px 0 0;
+		padding: 0 5% 40px;
+	}
 	
 	
 	/* Content --------------------------------------- */
-	
 	
 	.wrapper { padding: 0; }
 	

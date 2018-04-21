@@ -9,61 +9,63 @@
 if ( ! function_exists( 'lovecraft_setup' ) ) {
 
 	function lovecraft_setup() {
-		
+
 		// Automatic feed
 		add_theme_support( 'automatic-feed-links' );
-		
+
 		// Add post formats
 		add_theme_support( 'post-formats', array( 'aside' ) );
-		
+
 		// Title tag
 		add_theme_support( 'title-tag' );
-		
+
 		// Set content-width
 		global $content_width;
-		if ( ! isset( $content_width ) ) $content_width = 629;
-		
+		if ( ! isset( $content_width ) ) {
+			$content_width = 629;
+		}
+
 		// Post thumbnails
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size ( 88, 88, true );
-		
+		set_post_thumbnail_size( 88, 88, true );
+
 		add_image_size( 'post-image', 900, 9999 );
 		add_image_size( 'post-image-cover', 1280, 9999 );
-			
+
 		// Custom header
 		$args = array(
 			'width'         => 1280,
 			'height'        => 444,
 			'default-image' => get_template_directory_uri() . '/images/header.jpg',
 			'uploads'       => true,
-			'header-text'  	=> false
-			
+			'header-text'  	=> false,
+
 		);
 		add_theme_support( 'custom-header', $args );
-			
+
 		// Jetpack infinite scroll
 		add_theme_support( 'infinite-scroll', array(
 			'type' 		=> 'click',
 			'container'	=> 'posts',
 			'footer' 	=> false,
 		) );
-		
+
 		// Add nav menu
 		register_nav_menu( 'primary', __( 'Primary Menu', 'lovecraft' ) );
-		
+
 		// Make the theme translation ready
 		load_theme_textdomain( 'lovecraft', get_template_directory() . '/languages' );
-		
+
 		$locale = get_locale();
 		$locale_file = get_template_directory() . "/languages/$locale.php";
 		if ( is_readable( $locale_file ) ) {
 			require_once( $locale_file );
 		}
-		
+
 	}
 	add_action( 'after_setup_theme', 'lovecraft_setup' );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -74,17 +76,19 @@ if ( ! function_exists( 'lovecraft_setup' ) ) {
 if ( ! function_exists( 'lovecraft_load_javascript_files' ) ) {
 
 	function lovecraft_load_javascript_files() {
-		if ( ! is_admin() ) {		
+		if ( ! is_admin() ) {
 			wp_register_script( 'lovecraft_doubletap', get_template_directory_uri() . '/js/doubletaptogo.js', '', true );
 
 			wp_enqueue_script( 'lovecraft_global', get_template_directory_uri() . '/js/global.js', array( 'jquery', 'lovecraft_doubletap' ), '', true );
 
-			if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+			if ( is_singular() ) {
+				wp_enqueue_script( 'comment-reply' );
+			}
 		}
 	}
 	add_action( 'wp_enqueue_scripts', 'lovecraft_load_javascript_files' );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -103,7 +107,7 @@ if ( ! function_exists( 'lovecraft_load_style' ) ) {
 	}
 	add_action( 'wp_enqueue_scripts', 'lovecraft_load_style' );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -120,7 +124,7 @@ if ( ! function_exists( 'lovecraft_add_editor_styles' ) ) {
 	}
 	add_action( 'init', 'lovecraft_add_editor_styles' );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -131,7 +135,7 @@ if ( ! function_exists( 'lovecraft_add_editor_styles' ) ) {
 if ( ! function_exists( 'lovecraft_sidebar_registration' ) ) {
 
 	function lovecraft_sidebar_registration() {
-		
+
 		register_sidebar( array(
 			'name' 			=> __( 'Sidebar', 'lovecraft' ),
 			'id' 			=> 'sidebar',
@@ -139,7 +143,7 @@ if ( ! function_exists( 'lovecraft_sidebar_registration' ) ) {
 			'before_title' 	=> '<h3 class="widget-title">',
 			'after_title' 	=> '</h3>',
 			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-			'after_widget' 	=> '</div><div class="clear"></div></div>'
+			'after_widget' 	=> '</div><div class="clear"></div></div>',
 		) );
 
 		register_sidebar( array(
@@ -149,7 +153,7 @@ if ( ! function_exists( 'lovecraft_sidebar_registration' ) ) {
 			'before_title' 	=> '<h3 class="widget-title">',
 			'after_title' 	=> '</h3>',
 			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-			'after_widget' 	=> '</div><div class="clear"></div></div>'
+			'after_widget' 	=> '</div><div class="clear"></div></div>',
 		) );
 
 		register_sidebar( array(
@@ -159,7 +163,7 @@ if ( ! function_exists( 'lovecraft_sidebar_registration' ) ) {
 			'before_title' 	=> '<h3 class="widget-title">',
 			'after_title' 	=> '</h3>',
 			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-			'after_widget' 	=> '</div><div class="clear"></div></div>'
+			'after_widget' 	=> '</div><div class="clear"></div></div>',
 		) );
 
 		register_sidebar( array(
@@ -169,13 +173,13 @@ if ( ! function_exists( 'lovecraft_sidebar_registration' ) ) {
 			'before_title' 	=> '<h3 class="widget-title">',
 			'after_title' 	=> '</h3>',
 			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-			'after_widget' 	=> '</div><div class="clear"></div></div>'
+			'after_widget' 	=> '</div><div class="clear"></div></div>',
 		) );
 
 	}
-	add_action( 'widgets_init', 'lovecraft_sidebar_registration' ); 
+	add_action( 'widgets_init', 'lovecraft_sidebar_registration' );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -194,14 +198,14 @@ require_once( get_template_directory() . '/widgets/recent-posts.php' );
 
 
 if ( ! function_exists( 'lovecraft_unregister_default_widgets' ) ) {
- 
+
 	function lovecraft_unregister_default_widgets() {
 		unregister_widget( 'WP_Widget_Recent_Comments' );
 		unregister_widget( 'WP_Widget_Recent_Posts' );
 	}
 	add_action( 'widgets_init', 'lovecraft_unregister_default_widgets', 11 );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -211,12 +215,12 @@ if ( ! function_exists( 'lovecraft_unregister_default_widgets' ) ) {
 
 if ( ! function_exists( 'lovecraft_html_js_class' ) ) {
 
-	function lovecraft_html_js_class () {
-		echo '<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>'. "\n";
+	function lovecraft_html_js_class() {
+		echo '<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>' . "\n";
 	}
 	add_action( 'wp_head', 'lovecraft_html_js_class', 1 );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -227,52 +231,52 @@ if ( ! function_exists( 'lovecraft_html_js_class' ) ) {
 if ( ! function_exists( 'lovecraft_archive_navigation' ) ) {
 
 	function lovecraft_archive_navigation() {
-		
+
 		global $wp_query;
 		$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-		
+
 		if ( $wp_query->max_num_pages > 1 ) : ?>
-					
+
 			<div class="archive-navigation">
-				
+
 				<div class="fleft">
 					
-					<p><?php printf( __( 'Page %s of %s', 'lovecraft' ), $paged, $wp_query->max_num_pages ); ?></p>
-					
+					<?php /* Translators: %1$s = current page, %2$s = max number of pages */ ?>
+					<p><?php printf( _x( 'Page %1$s of %2$s', 'Translators: %1$s = current page, %2$s = max number of pages', 'lovecraft' ), $paged, $wp_query->max_num_pages ); ?></p>
+
 				</div>
-				
+
 				<div class="fright">
-					
+
 					<?php if ( get_previous_posts_link() ) : ?>
-					
+
 						<p>
-						
+
 							<?php echo get_previous_posts_link( '&larr; ' . __( 'Previous', 'lovecraft' ) ); ?>
-						
+
 						</p>
-					
+
 					<?php endif; ?>
-					
+
 					<?php if ( get_next_posts_link() ) : ?>
-					
+
 						<p>
-						
+
 							<?php echo get_next_posts_link( __( 'Next', 'lovecraft' ) . ' &rarr;' ); ?>
-							
+
 						</p>
-					
+
 					<?php endif; ?>
-				
+
 				</div>
-				
+
 				<div class="clear"></div>
-							
+
 			</div><!-- .archive-nav -->
-							
+
 		<?php endif;
 	}
-
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -287,7 +291,7 @@ if ( ! function_exists( 'lovecraft_modify_read_more_link' ) ) {
 	}
 	add_filter( 'the_content_more_link', 'lovecraft_modify_read_more_link' );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -296,19 +300,24 @@ if ( ! function_exists( 'lovecraft_modify_read_more_link' ) ) {
 
 
 if ( ! function_exists( 'lovecraft_body_classes' ) ) {
- 
-	function lovecraft_body_classes( $classes ){
-	
+
+	function lovecraft_body_classes( $classes ) {
+
 		// Has post thumbnail
-		if ( is_single() && has_post_thumbnail() ){
+		if ( is_single() && has_post_thumbnail() ) {
 			$classes[] = 'has-featured-image';
 		}
-		
+
+		// Check whether we're showing the sidebar on mobile
+		if ( get_theme_mod( 'lovecraft_show_sidebar_on_mobile' ) ) {
+			$classes[] = 'show-mobile-sidebar';
+		}
+
 		return $classes;
 	}
 	add_filter( 'body_class', 'lovecraft_body_classes' );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -317,9 +326,9 @@ if ( ! function_exists( 'lovecraft_body_classes' ) ) {
 
 
 if ( ! function_exists( 'lovecraft_get_comment_excerpt' ) ) {
-	
-	function lovecraft_get_comment_excerpt( $comment_ID = 0, $num_words = 20 ) {
-		$comment = get_comment( $comment_ID );
+
+	function lovecraft_get_comment_excerpt( $comment_id = 0, $num_words = 20 ) {
+		$comment = get_comment( $comment_id );
 		$comment_text = strip_tags( $comment->comment_content );
 		$blah = explode( ' ', $comment_text );
 		if ( count( $blah ) > $num_words ) {
@@ -331,13 +340,12 @@ if ( ! function_exists( 'lovecraft_get_comment_excerpt' ) ) {
 		}
 		$excerpt = '';
 		for ( $i = 0; $i < $k; $i++ ) {
-			$excerpt .= $blah[$i] . ' ';
+			$excerpt .= $blah[ $i ] . ' ';
 		}
 		$excerpt .= ( $use_dotdotdot ) ? '...' : '';
 		return apply_filters( 'get_comment_excerpt', $excerpt );
 	}
-
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -347,20 +355,19 @@ if ( ! function_exists( 'lovecraft_get_comment_excerpt' ) ) {
 
 if ( ! function_exists( 'lovecraft_admin_area_style' ) ) {
 
-	function lovecraft_admin_area_style() { 
-	echo '
-	<style type="text/css">
-		
+	function lovecraft_admin_area_style() {
+		?>
+		<style type="text/css">
 			#postimagediv #set-post-thumbnail img {
 				max-width: 100%;
 				height: auto;
 			}
-		
-		</style>';
+		</style>
+		<?php
 	}
 	add_action( 'admin_head', 'lovecraft_admin_area_style' );
 
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -371,91 +378,88 @@ if ( ! function_exists( 'lovecraft_admin_area_style' ) ) {
 if ( ! function_exists( 'lovecraft_comment' ) ) {
 
 	function lovecraft_comment( $comment, $args, $depth ) {
-		$GLOBALS['comment'] = $comment;
-		switch ( $comment->comment_type ) :
-			case 'pingback' :
-			case 'trackback' :
-		?>
-		
-		<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-		
-			<?php __( 'Pingback:', 'lovecraft' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'lovecraft' ), '<span class="edit-link">', '</span>' ); ?>
-			
-		</li>
-		<?php
-				break;
-			default :
-			global $post;
-		?>
-		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		
-			<div id="comment-<?php comment_ID(); ?>" class="comment">
-				
-				<?php echo get_avatar( $comment, 160 ); ?>
-				
-				<?php if ( $comment->user_id === $post->post_author ) : ?>
-						
-					<a class="comment-author-icon" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php _e( 'Post author', 'lovecraft' ); ?>">
-					
-						<div class="genericon genericon-user"></div>
-						
-					</a>
-				
-				<?php endif; ?>
-				
-				<div class="comment-inner">
-				
-					<div class="comment-header">
-												
-						<h4><?php echo get_comment_author_link(); ?></h4>
-					
-					</div><!-- .comment-header -->
-					
-					<div class="comment-content post-content">
-				
-						<?php comment_text(); ?>
-						
-					</div><!-- .comment-content -->
-					
-					<div class="comment-meta">
-						
-						<div class="fleft">
-							<div class="genericon genericon-day"></div><a class="comment-date-link" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php printf( _x( '%s at %s', 'Variables: comment date, comment time', 'lovecraft' ), get_comment_date(), get_comment_time() ); ?>"><?php echo get_comment_date( get_option( 'date_format' ) ); ?></a>
-							<?php edit_comment_link( __( 'Edit', 'lovecraft' ), '<div class="genericon genericon-edit"></div>', '' ); ?>
-						</div>
-						
-						<?php if ( 0 == $comment->comment_approved ) : ?>
-					
-							<div class="comment-awaiting-moderation fright">
-								<div class="genericon genericon-show"></div><?php _e( 'Your comment is awaiting moderation.', 'lovecraft' ); ?>
-							</div>
-							
-						<?php else : 
 
-							comment_reply_link( array( 
-								'reply_text' 	=>  	__( 'Reply', 'lovecraft' ),
-								'depth'			=> 		$depth, 
-								'max_depth' 	=> 		$args['max_depth'],
-								'before'		=>		'<div class="fright"><div class="genericon genericon-reply"></div>',
-								'after'			=>		'</div>'
-								) 
-							); 
-							
-						endif; ?>
-						
-						<div class="clear"></div>
-						
-					</div><!-- .comment-meta -->
-									
-				</div><!-- .comment-inner -->
-											
-			</div><!-- .comment-## -->
-					
-		<?php
-			break;
-		endswitch;
+		if ( in_array( $comment->comment_type, array( 'pingback', 'trackback' ) ) ) : ?>
+
+			<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+				<?php __( 'Pingback:', 'lovecraft' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'lovecraft' ), '<span class="edit-link">', '</span>' ); ?>
+			</li>
+
+			<?php
+		else :
+			global $post; ?>
+
+			<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+
+				<div id="comment-<?php comment_ID(); ?>" class="comment">
+
+					<?php
+
+					echo get_avatar( $comment, 160 );
+
+					if ( $comment->user_id === $post->post_author ) : ?>
+
+						<a class="comment-author-icon" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php _e( 'Post author', 'lovecraft' ); ?>">
+
+							<div class="genericon genericon-user"></div>
+
+						</a>
+
+					<?php endif; ?>
+
+					<div class="comment-inner">
+
+						<div class="comment-header">
+
+							<h4><?php echo get_comment_author_link(); ?></h4>
+
+						</div><!-- .comment-header -->
+
+						<div class="comment-content post-content">
+
+							<?php comment_text(); ?>
+
+						</div><!-- .comment-content -->
+
+						<div class="comment-meta">
+
+							<div class="fleft">
+								<?php /* Translators: %1$s = comment date, %2$s = comment time */ ?>
+								<div class="genericon genericon-day"></div><a class="comment-date-link" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php printf( _x( '%1$s at %2$s', 'Translators: %1$s = comment date, %2$s = comment time', 'lovecraft' ), get_comment_date(), get_comment_time() ); ?>"><?php echo get_comment_date( get_option( 'date_format' ) ); ?></a>
+								<?php edit_comment_link( __( 'Edit', 'lovecraft' ), '<div class="genericon genericon-edit"></div>', '' ); ?>
+							</div>
+
+							<?php if ( 0 == $comment->comment_approved ) : ?>
+
+								<div class="comment-awaiting-moderation fright">
+									<div class="genericon genericon-show"></div><?php _e( 'Your comment is awaiting moderation.', 'lovecraft' ); ?>
+								</div>
+
+								<?php
+							else :
+
+								comment_reply_link( array(
+									'reply_text' 	=> __( 'Reply', 'lovecraft' ),
+									'depth'			=> $depth,
+									'max_depth' 	=> $args['max_depth'],
+									'before'		=> '<div class="fright"><div class="genericon genericon-reply"></div>',
+									'after'			=> '</div>',
+								) );
+
+							endif; ?>
+
+							<div class="clear"></div>
+
+						</div><!-- .comment-meta -->
+
+					</div><!-- .comment-inner -->
+
+				</div><!-- .comment-## -->
+
+			<?php
+		endif;
 	}
-}
+} // End if().
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -463,167 +467,176 @@ if ( ! function_exists( 'lovecraft_comment' ) ) {
    --------------------------------------------------------------------------------------------- */
 
 
-class lovecraft_customize {
+class Lovecraft_Customize {
 
-   public static function lovecraft_register ( $wp_customize ) {
-   
-      //1. Define a new section (if desired) to the Theme Customizer
-      $wp_customize->add_section( 'lovecraft_options', 
-         array(
-            'title' 		=> __( 'Options for Lovecraft', 'lovecraft' ), //Visible title of section
-            'priority' 		=> 35, //Determines what order this appears in
-            'capability' 	=> 'edit_theme_options', //Capability needed to tweak
-            'description' 	=> __( 'Allows you to customize theme settings for Lovecraft.', 'lovecraft' ), //Descriptive tooltip
-         ) 
-      );
-      
-      $wp_customize->add_section( 'lovecraft_logo_section' , array(
-		    'title'       => __( 'Logo', 'lovecraft' ),
-		    'priority'    => 40,
-		    'description' => __( 'Upload a logo to replace the default site title in the header.', 'lovecraft' ),
-	  ) );
-      
-      
-      //2. Register new settings to the WP database...
-      $wp_customize->add_setting( 'accent_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-         array(
-            'default' 			=> '#CA2017', //Default setting/value to save
-            'type' 				=> 'theme_mod', //Is this an 'option' or a 'theme_mod'?
-            'transport' 		=> 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
-      		'sanitize_callback' => 'sanitize_hex_color'
-         ) 
-      );
-	  
-	  $wp_customize->add_setting( 'lovecraft_logo', array( 'sanitize_callback' => 'esc_url_raw' ) );
-      
-      
-      //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-      $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
-         $wp_customize, //Pass the $wp_customize object (required)
-         'lovecraft_accent_color', //Set a unique ID for the control
-         array(
-            'label' 	=> __( 'Accent Color', 'lovecraft' ), //Admin-visible name of the control
-            'section' 	=> 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-            'settings' 	=> 'accent_color', //Which setting to load and manipulate (serialized is okay)
-            'priority' 	=> 10, //Determines the order this control appears in for the specified section
-         ) 
-      ) );
-      
-      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'lovecraft_logo', array(
-		    'label'    => __( 'Logo', 'lovecraft' ),
-		    'section'  => 'lovecraft_logo_section',
-		    'settings' => 'lovecraft_logo',
-	  ) ) );
-      
-      //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
-      $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-      $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-   }
+	public static function lovecraft_register( $wp_customize ) {
 
-   public static function lovecraft_header_output() {
-      ?>
-      
-	      <!-- Customizer CSS --> 
-	      
-	      <style type="text/css">
-	           <?php self::lovecraft_generate_css( 'body a', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( 'body a:hover', 'color', 'accent_color' ); ?>
+		// Add the theme options section
+		$wp_customize->add_section( 'lovecraft_options', array(
+			'title' 		=> __( 'Options for Lovecraft', 'lovecraft' ), //Visible title of section
+			'priority' 		=> 35, //Determines what order this appears in
+			'capability' 	=> 'edit_theme_options', //Capability needed to tweak
+			'description' 	=> __( 'Allows you to customize theme settings for Lovecraft.', 'lovecraft' ), //Descriptive tooltip
+		) );
 
-	           <?php self::lovecraft_generate_css( '.blog-title a:hover', 'color', 'accent_color' ); ?>	           
-	           <?php self::lovecraft_generate_css( '.main-menu li:hover > a', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.main-menu > .menu-item-has-children > a:after', 'border-top-color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.main-menu > .menu-item-has-children > a:hover:after', 'border-top-color', 'accent_color' ); ?>
-	           
-	           <?php self::lovecraft_generate_css( '.sticky-post', 'background', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.sticky-post:after', 'border-right-color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.sticky-post:after', 'border-left-color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-meta a', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-meta a:hover', 'border-bottom-color', 'accent_color' ); ?>
-	           
-	           <?php self::lovecraft_generate_css( '.post-content a', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-content a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-content blockquote:after', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-content input[type="submit"]:hover', 'background', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-content input[type="button"]:hover', 'background', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-content input[type="reset"]:hover', 'background', 'accent_color' ); ?>
-	           
-	           <?php self::lovecraft_generate_css( '.post-content .page-links a:hover', 'background', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-tags a:hover', 'background', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-tags a:hover:before', 'border-right-color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.post-navigation h4 a:hover', 'color', 'accent_color' ); ?>
-	           
-	           <?php self::lovecraft_generate_css( '.comments-title-link a', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.comments .pingbacks li a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.comment-header h4 a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.bypostauthor .comment-author-icon', 'background', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.form-submit #submit:hover', 'background-color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.comments-nav a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.pingbacks-title', 'border-bottom-color', 'accent_color' ); ?>
-	           
-	           <?php self::lovecraft_generate_css( '.archive-navigation a:hover', 'color', 'accent_color' ); ?>
-				
-			   <?php self::lovecraft_generate_css( '.widget-title', 'border-bottom-color', 'accent_color' ); ?>	           
-	           <?php self::lovecraft_generate_css( '.widget-content .textwidget a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.widget_archive li a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.widget_categories li a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.widget_meta li a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.widget_nav_menu li a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.widget_rss .widget-content ul a.rsswidget:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '#wp-calendar thead th', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '#wp-calendar tfoot a:hover', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.widget .tagcloud a:hover', 'background', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.widget .tagcloud a:hover:before', 'border-right-color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.footer .widget .tagcloud a:hover', 'background', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.footer .widget .tagcloud a:hover:before', 'border-right-color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.search-button:hover .genericon', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.wrapper .search-button:hover .genericon', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.footer .search-button:hover .genericon', 'color', 'accent_color' ); ?>
-	           
-	           <?php self::lovecraft_generate_css( '.credits .sep', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.credits p a:hover', 'color', 'accent_color' ); ?>
+		// Add the logo options section
+		$wp_customize->add_section( 'lovecraft_logo_section' , array(
+			'title'       => __( 'Logo', 'lovecraft' ),
+			'priority'    => 40,
+			'description' => __( 'Upload a logo to replace the default site title in the header.', 'lovecraft' ),
+		) );
 
-	           <?php self::lovecraft_generate_css( '.nav-toggle.active .bar', 'background-color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.search-toggle.active .genericon', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.mobile-menu .current-menu-item:before', 'color', 'accent_color' ); ?>
-	           <?php self::lovecraft_generate_css( '.mobile-menu .current_page_item:before', 'color', 'accent_color' ); ?>	           
+		// Custom logo setting
+		$wp_customize->add_setting( 'lovecraft_logo', array(
+			'sanitize_callback' => 'esc_url_raw',
+		) );
 
-	      </style> 
-	      
-	      <!--/Customizer CSS-->
-	      
-      <?php
-   }
-   
-   public static function lovecraft_live_preview() {
-      wp_enqueue_script( 
-           'lovecraft-themecustomizer', // Give the script a unique ID
-           get_template_directory_uri() . '/js/theme-customizer.js', // Define the path to the JS file
-           array(  'jquery', 'customize-preview' ), // Define dependencies
-           '', // Define a version (optional) 
-           true // Specify whether to put in footer (leave this true)
-      );
-   }
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'lovecraft_logo', array(
+			'label'    => __( 'Logo', 'lovecraft' ),
+			'section'  => 'lovecraft_logo_section',
+			'settings' => 'lovecraft_logo',
+		) ) );
 
-   public static function lovecraft_generate_css( $selector, $style, $mod_name, $prefix='', $postfix='', $echo=true ) {
-      $return = '';
-      $mod = get_theme_mod($mod_name);
-      if ( ! empty( $mod ) ) {
-         $return = sprintf( '%s { %s:%s; }', $selector, $style, $prefix.$mod.$postfix );
-         if ( $echo ) {
-            echo $return;
-         }
-      }
-      return $return;
-    }
+		// Show sidebar on mobile setting
+		$wp_customize->add_setting( 'lovecraft_show_sidebar_on_mobile', array(
+			'capability' 		=> 'edit_theme_options',
+			'sanitize_callback' => 'lovecraft_sanitize_checkbox',
+			'transport'			=> 'postMessage',
+		) );
+
+		$wp_customize->add_control( 'lovecraft_show_sidebar_on_mobile', array(
+			'type' 			=> 'checkbox',
+			'section' 		=> 'lovecraft_options',
+			'label' 		=> __( 'Show Sidebar on Mobile', 'lovecraft' ),
+			'description' 	=> __( 'Check this to display the sidebar on mobile. It is hidden on mobile as default.', 'lovecraft' ),
+		) );
+
+		// Accent color setting
+		$wp_customize->add_setting( 'accent_color', array(
+			'default' 			=> '#CA2017',
+			'type' 				=> 'theme_mod',
+			'transport' 		=> 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lovecraft_accent_color', array(
+			'label' 	=> __( 'Accent Color', 'lovecraft' ),
+			'section' 	=> 'colors',
+			'settings' 	=> 'accent_color',
+			'priority' 	=> 10,
+		) ) );
+
+		// Transport via postMessage
+		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+
+		// SANITATION
+
+		// Sanitize boolean for checkbox
+		function lovecraft_sanitize_checkbox( $checked ) {
+			return ( ( isset( $checked ) && true == $checked ) ? true : false );
+		}
+	}
+
+	public static function lovecraft_header_output() {
+		?>
+
+		<!-- Customizer CSS -->
+
+		<style type="text/css">
+
+			<?php self::lovecraft_generate_css( 'body a', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( 'body a:hover', 'color', 'accent_color' ); ?>
+
+			<?php self::lovecraft_generate_css( '.blog-title a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.main-menu li:hover > a', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.main-menu > .menu-item-has-children > a:after', 'border-top-color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.main-menu > .menu-item-has-children > a:hover:after', 'border-top-color', 'accent_color' ); ?>
+
+			<?php self::lovecraft_generate_css( '.sticky-post', 'background', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.sticky-post:after', 'border-right-color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.sticky-post:after', 'border-left-color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-meta a', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-meta a:hover', 'border-bottom-color', 'accent_color' ); ?>
+
+			<?php self::lovecraft_generate_css( '.post-content a', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-content a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-content blockquote:after', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-content input[type="submit"]:hover', 'background', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-content input[type="button"]:hover', 'background', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-content input[type="reset"]:hover', 'background', 'accent_color' ); ?>
+
+			<?php self::lovecraft_generate_css( '.post-content .page-links a:hover', 'background', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-tags a:hover', 'background', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-tags a:hover:before', 'border-right-color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.post-navigation h4 a:hover', 'color', 'accent_color' ); ?>
+
+			<?php self::lovecraft_generate_css( '.comments-title-link a', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.comments .pingbacks li a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.comment-header h4 a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.bypostauthor .comment-author-icon', 'background', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.form-submit #submit:hover', 'background-color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.comments-nav a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.pingbacks-title', 'border-bottom-color', 'accent_color' ); ?>
+
+			<?php self::lovecraft_generate_css( '.archive-navigation a:hover', 'color', 'accent_color' ); ?>
+
+			<?php self::lovecraft_generate_css( '.widget-title', 'border-bottom-color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.widget-content .textwidget a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.widget_archive li a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.widget_categories li a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.widget_meta li a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.widget_nav_menu li a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.widget_rss .widget-content ul a.rsswidget:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '#wp-calendar thead th', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '#wp-calendar tfoot a:hover', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.widget .tagcloud a:hover', 'background', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.widget .tagcloud a:hover:before', 'border-right-color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.footer .widget .tagcloud a:hover', 'background', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.footer .widget .tagcloud a:hover:before', 'border-right-color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.search-button:hover .genericon', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.wrapper .search-button:hover .genericon', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.footer .search-button:hover .genericon', 'color', 'accent_color' ); ?>
+
+			<?php self::lovecraft_generate_css( '.credits .sep', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.credits p a:hover', 'color', 'accent_color' ); ?>
+
+			<?php self::lovecraft_generate_css( '.nav-toggle.active .bar', 'background-color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.search-toggle.active .genericon', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.mobile-menu .current-menu-item:before', 'color', 'accent_color' ); ?>
+			<?php self::lovecraft_generate_css( '.mobile-menu .current_page_item:before', 'color', 'accent_color' ); ?>
+
+		</style>
+
+		<!--/Customizer CSS-->
+
+		<?php
+	}
+
+	public static function lovecraft_live_preview() {
+		wp_enqueue_script( 'lovecraft-themecustomizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'jquery', 'customize-preview' ), '', true );
+	}
+
+	public static function lovecraft_generate_css( $selector, $style, $mod_name, $prefix = '', $postfix = '', $echo = true ) {
+		$return = '';
+		$mod = get_theme_mod( $mod_name );
+		if ( ! empty( $mod ) ) {
+			$return = sprintf( '%s { %s:%s; }', $selector, $style, $prefix . $mod . $postfix );
+			if ( $echo ) {
+				echo $return;
+			}
+		}
+		return $return;
+	}
 }
 
 // Setup the Theme Customizer settings and controls...
-add_action( 'customize_register' , array( 'lovecraft_customize' , 'lovecraft_register' ) );
+add_action( 'customize_register' , array( 'Lovecraft_Customize', 'lovecraft_register' ) );
 
 // Output custom CSS to live site
-add_action( 'wp_head' , array( 'lovecraft_customize' , 'lovecraft_header_output' ) );
+add_action( 'wp_head' , array( 'Lovecraft_Customize', 'lovecraft_header_output' ) );
 
 // Enqueue live preview javascript in Theme Customizer admin screen
-add_action( 'customize_preview_init' , array( 'lovecraft_customize' , 'lovecraft_live_preview' ) );
+add_action( 'customize_preview_init' , array( 'Lovecraft_Customize', 'lovecraft_live_preview' ) );
 
 ?>
