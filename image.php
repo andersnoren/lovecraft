@@ -46,7 +46,7 @@
 							$image = get_post( get_post_thumbnail_id() );
 							$excerpt = $image->post_excerpt;
 
-							if ( $excerpt : ?>
+							if ( $excerpt ) : ?>
 
 								<div class="post-content">
 

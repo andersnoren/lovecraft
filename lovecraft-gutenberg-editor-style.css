@@ -1,0 +1,417 @@
+/*---------------------------------------------------------------------------------
+	Gutenberg editor styles for Lovecraft
+---------------------------------------------------------------------------------*/
+
+
+/* Structure ---------------------------------------------- */
+
+
+.edit-post-visual-editor {
+	color: #111;
+	font-family: 'Georgia', serif;
+	font-size: 18px;
+}
+
+.edit-post-visual-editor * {
+	font-family: inherit !important;
+}
+
+body.gutenberg-editor-page .edit-post-visual-editor .editor-post-title__block, 
+body.gutenberg-editor-page .edit-post-visual-editor .editor-default-block-appender, 
+body.gutenberg-editor-page .edit-post-visual-editor .editor-block-list__block {
+    max-width: 659px;
+}
+
+body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
+    max-width: none;
+}
+
+body.gutenberg-editor-page .editor-block-list__block[data-align="wide"] {
+    max-width: 93%;
+}
+
+body.gutenberg-editor-page .editor-block-list__block[data-align="right"] .editor-block-list__block-edit,
+body.gutenberg-editor-page .editor-block-list__block[data-align="left"] .editor-block-list__block-edit {
+    max-width: 50%;
+}
+
+.editor-rich-text__tinymce.mce-content-body {
+	line-height: 1.6;
+}
+
+
+/* Typography --------------------------------------------- */
+
+.editor-post-title__block .editor-post-title__input {
+	color: #111;
+	font-family: 'Playfair Display', Georgia, serif !important;
+	font-size: 44px;
+	font-weight: 700;
+	line-height: 1.2;
+	text-align: left;
+}
+
+.edit-post-visual-editor a {
+	color: #ca2017;
+	text-decoration: none;
+}
+
+.edit-post-visual-editor a:hover {
+	color: #ca2017;
+	text-decoration: underline;
+}
+
+body.gutenberg-editor-page .edit-post-visual-editor p {
+	font-size: inherit;
+}
+
+body.gutenberg-editor-page .editor-block-list__block, 
+body.gutenberg-editor-page .editor-block-list__block p {
+	font-size: inherit;
+}
+
+body.gutenberg-editor-page .wp-block-heading h1,
+body.gutenberg-editor-page .wp-block-heading h2,
+body.gutenberg-editor-page .wp-block-heading h3,
+body.gutenberg-editor-page .wp-block-heading h4,
+body.gutenberg-editor-page .wp-block-heading h5,
+body.gutenberg-editor-page .wp-block-heading h6 {
+	font-family: 'Playfair Display', Georgia, serif !important;
+	color: #222;
+	font-weight: 700;
+	line-height: 120%;
+	margin: 50px 0 25px;
+}
+
+body.gutenberg-editor-page .wp-block-heading h1 { font-size: 2em; }
+body.gutenberg-editor-page .wp-block-heading h2 { font-size: 1.75em; }
+body.gutenberg-editor-page .wp-block-heading h3 { font-size: 1.5em; }
+body.gutenberg-editor-page .wp-block-heading h4 { font-size: 1.25em; }
+body.gutenberg-editor-page .wp-block-heading h5 { font-size: 1.1em; }
+
+body.gutenberg-editor-page .wp-block-heading h6 { 
+	font-family: 'Lato', Helvetica, sans-serif !important;
+	font-size: 13px;
+	font-weight: 900;
+	letter-spacing: 1px;
+	text-transform: uppercase; 
+}
+
+p.has-drop-cap:not(:focus):first-letter {
+    font-size: 6.2em;
+	font-weight: 400;
+}
+
+
+/* Monospace -------------------------------------- */
+
+.edit-post-visual-editor code, 
+.edit-post-visual-editor kbd, 
+.edit-post-visual-editor pre, 
+.edit-post-visual-editor samp {
+	font-family: Menlo, Monaco, monospace !important;
+}
+
+kbd,
+pre,
+samp {
+	background: #eee;
+	border: 1px solid #ddd;
+	border-radius: none;
+	color: #111;
+	font-size: .85em;
+	padding: 2% 2.5%;
+}
+
+pre {
+	line-height: 1.4;
+	padding: 1em;
+}
+
+
+/* Custom Text Sizes -------------------------------------- */
+
+
+.edit-post-visual-editor p.has-large-font-size,
+.edit-post-visual-editor p.has-larger-font-size {
+	line-height: 1.5;
+}
+
+
+/* Post Media --------------------------------------------- */
+
+figure {
+	margin: 0;
+}
+
+.alignleft,
+.alignright {
+	margin-bottom: 1.2em;
+	max-width: 40%;
+}
+
+.wp-caption .alignleft,
+.wp-caption .alignright {
+	margin-bottom: 0;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 1em;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1em;
+}
+
+.editor-writing-flow figcaption {
+	color: #666;
+	font-family: 'Lato', Helvetica, sans-serif !important;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+}
+
+
+/* Block: More ---------------------------------------- */
+
+.gutenberg .wp-block-more input[type=text] {
+	color: #666;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: 800;
+}
+
+/* Block: Table ---------------------------------------- */
+
+
+table.wp-block-table {
+	border: none;
+	border-collapse: collapse;
+    border-spacing: 0;
+	empty-cells: show;
+    font-size: 18px;
+    margin-bottom: 1.1em;
+    width: 100%;
+}
+
+table.wp-block-table tbody {
+	border-top: 1px solid #DADADA;
+}
+
+table.wp-block-table thead + tbody {
+	border-top: none;
+}
+
+.wp-block-table th,
+.wp-block-table td {
+	border: none;
+	border-bottom: 1px solid #DADADA;
+	line-height: 120%;
+	margin: 0;
+	overflow: visible;
+	padding: 0;
+}
+
+.wp-block-table caption {
+	color: inherit;
+	padding: 0;
+	text-align: center;
+}
+
+.wp-block-table thead {
+	vertical-align: bottom;
+	white-space: nowrap;
+}
+
+.wp-block-table th {
+	color: inherit;
+	font-weight: 600;
+}
+
+.wp-block-table tbody > tr:nth-child(odd) > td { background: rgba( 0, 0, 0, 0.05 ); }
+
+
+/* Block: Separator ---------------------------------------- */
+
+
+hr.wp-block-separator {
+	border: none !important;
+	color: #888;
+	margin: 2em auto;
+}
+
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+	background: #eee;
+	height: 4px;
+	max-width: none;
+	width: 50%;
+}
+
+.wp-block-separator.is-style-wide {
+	background: #eee;
+	height: 4px;
+	width: 100%;
+}
+
+.wp-block-separator.is-style-dots:before {
+	color: inherit;
+}
+
+
+/* Block: File --------------------------------------------- */
+
+
+.wp-block-file {
+	background: rgba( 0, 0, 0, 0.05 );
+	border-radius: 4px;
+	font-family: 'Lato', Helvetica, sans-serif !important;
+	padding: 15px 20px;
+}
+
+.wp-block-file__content-wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.wp-block-file .wp-block-file__textlink {
+	color: inherit;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+.wp-block-file .wp-block-file__button {
+	border-radius: 4px;
+	color: #fff;
+	font-weight: 700;
+	padding: .8em 1.4em;
+}
+
+
+/* Block: Quote -------------------------------------------- */
+
+blockquote {
+	margin: 0;
+}
+
+.wp-block-quote {
+	background: #fafafa;
+	border: 1px solid #eee;
+	clear: both;
+	color: #111;
+	display: block;
+	font-size: 1em;
+	font-style: italic;
+	margin: 2.5em 0;
+	padding: 30px 30px 30px 90px;
+	position: relative;
+}
+
+.wp-block-quote:after {
+	color: #ca2017;
+	content: '”';
+	font-family: 'Georgia', serif;
+	font-size: 72px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 72px;
+	position: absolute;
+		left: 0px;
+		top: 31px;
+	text-align: center;
+	width: 90px;
+}
+
+.wp-block-quote,
+.wp-block-quote.is-large,
+.wp-block-quote.is-style-large,
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+	border: 1px solid #eee;
+	padding: 30px 30px 30px 90px;
+}
+
+cite,
+.wp-block-quote__citation,
+.wp-block-pullquote__citation,
+.wp-block-quote cite,
+.wp-block-quote footer,
+.wp-block-pullquote cite,
+.wp-block-quote.is-large cite, 
+.wp-block-quote.is-large footer, 
+.wp-block-quote.is-style-large cite, 
+.wp-block-quote.is-style-large footer {
+	color: #111;
+	font-family: 'Lato', Helvetica, sans-serif !important;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 900;
+	letter-spacing: 1px;
+	line-height: 140%;
+	margin-top: 1em;
+	text-transform: uppercase;
+}
+
+cite:before,
+.wp-block-quote footer:before,
+.wp-block-quote__citation:before,
+.wp-block-pullquote__citation:before { 
+	content: "— "; 
+}
+
+.wp-block-quote.is-large, 
+.wp-block-quote.is-style-large {
+	font-size: 1.25em;
+}
+
+
+/* Block: Pull Quote ---------------------------------------- */
+
+.wp-block-pullquote {
+	border: none;
+	color: #111;
+	font-style: italic;
+	padding: 0;
+	text-align: left;
+}
+
+.wp-block-pullquote.alignleft, 
+.wp-block-pullquote.alignright {
+	max-width: 50%;
+}
+
+body.gutenberg-editor-page .wp-block-pullquote.alignleft p,
+body.gutenberg-editor-page .wp-block-pullquote.alignright p {
+	font-size: 1.25em;
+	line-height: 1.45;
+}
+
+
+/* Block: Cover Image ---------------------------------------- */
+
+body.gutenberg-editor-page .wp-block-cover-image p {
+	font-family: 'Lato', Helvetica, sans-serif !important;
+	font-size: 2em;
+	font-weight: 300;
+}
+
+
+/* Block: Verse ------------------------------------------- */
+
+.wp-block-verse pre, 
+pre.wp-block-verse {
+	font-size: 0.7em;
+}
+
+
+/* Block: Button ------------------------------------------- */
+
+.wp-block-button .wp-block-button__link {
+	border-radius: 4px;
+	font-family: 'Lato', Helvetica, sans-serif !important;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.1;
+	padding: .9em 1.4em;
+}
