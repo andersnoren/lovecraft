@@ -53,7 +53,7 @@ class Lovecraft_Recent_Posts extends WP_Widget {
 
 					<li>
 
-						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+						<a href="<?php the_permalink(); ?>">
 
 							<div class="post-icon">
 

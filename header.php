@@ -51,19 +51,17 @@
 
 			<div class="toggles">
 
-				<div class="nav-toggle toggle">
-
+				<button type="button" class="nav-toggle toggle">
 					<div class="bar"></div>
 					<div class="bar"></div>
 					<div class="bar"></div>
+					<span class="screen-reader-text"><?php _e( 'Toggle the mobile menu', 'lovecraft' ); ?></span>
+				</button>
 
-				</div>
-
-				<div class="search-toggle toggle">
-
+				<button type="button" class="search-toggle toggle">
 					<div class="genericon genericon-search"></div>
-
-				</div>
+					<span class="screen-reader-text"><?php _e( 'Toggle the search field', 'lovecraft' ); ?></span>
+				</button>
 
 				<div class="clear"></div>
 

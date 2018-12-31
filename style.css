@@ -5,7 +5,7 @@
 	Theme Name: Lovecraft
     Text Domain: lovecraft
 	Theme URI: http://www.andersnoren.se/teman/lovecraft-wordpress-theme/
-	Version: 1.25
+	Version: 1.28
 	Description: Lovecraft is a beautiful two-column theme for bloggers. It features a responsive design, great typography, Gutenberg support, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, a Flickr widget, recent posts and recent comments widgets with thumbnails, and a full-width template. Demo: http://www.andersnoren.se/themes/lovecraft/
 	Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 	Author: Anders Norén
@@ -67,8 +67,6 @@ ol, ul { list-style:none; }
 blockquote:before, 
 blockquote:after { content:""; }
 
-a { outline:none; }
-
 input,
 textarea { 
 	-webkit-font-smoothing: antialiased; 
@@ -119,14 +117,14 @@ body a:hover {
 }
 
 * { 
-	box-sizing: border-box; 
-	-moz-box-sizing: border-box; 
-	-webkit-box-sizing: border-box; 
+		-moz-box-sizing: border-box; 
+		-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
 }
 
 img {
-	max-width: 100%;
 	height: auto;
+	max-width: 100%;
 }
 
 .hidden { display: none; }
@@ -442,7 +440,6 @@ body a,
 	display: block;
 	padding: 20px;
 	line-height: 130%;
-	box-sizing: border-box;
 	border-bottom: 1px solid rgba(255,255,255,0.1);
 	color: #fff;
 	font-style: italic;
@@ -512,7 +509,6 @@ body a,
 
 .sticky-post {
 	display: block;	
-	box-sizing: border-box;
 	height: 40px;
 	width: 30px;
 	background: #ca2017;
@@ -2386,13 +2382,18 @@ div.comment { margin-top: 25px; }
 	}
 	
 	.toggle {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		background: none;
+		border-radius: 0;
+		box-shadow: none;
+		cursor: pointer;
 		display: block;
-		width: 30px;
 		height: 55px;
+		padding: 0;
 		position: relative;
+		width: 30px;
 	}
-	
-	.toggle:hover { cursor: pointer; }
 	
 	.nav-toggle { float: left; }
 	

@@ -19,7 +19,7 @@
 			)
 		);
 
-		the_widget( 'lovecraft_recent_posts',
+		the_widget( 'Lovecraft_Recent_Posts',
 			array(
 				'number_of_posts' 	=> '5',
 				'widget_title'		=> __( 'Recent Posts', 'lovecraft' ),

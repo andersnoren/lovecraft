@@ -58,9 +58,9 @@
 
 						</div><!-- .post-inner -->
 
-						<?php comments_template( '', true ); ?>
-
-						<?php
+						<?php 
+						
+						comments_template( '', true );
 
 					endwhile;
 

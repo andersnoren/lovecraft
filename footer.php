@@ -4,23 +4,9 @@
 
 		<div class="section-inner">
 
-			<div class="widgets">
-
-				<?php dynamic_sidebar( 'footer-one' ); ?>
-
-			</div>
-
-			<div class="widgets">
-
-				<?php dynamic_sidebar( 'footer-two' ); ?>
-
-			</div>
-
-			<div class="widgets">
-
-				<?php dynamic_sidebar( 'footer-three' ); ?>
-
-			</div>
+			<div class="widgets"><?php dynamic_sidebar( 'footer-one' ); ?></div>
+			<div class="widgets"><?php dynamic_sidebar( 'footer-two' ); ?></div>
+			<div class="widgets"><?php dynamic_sidebar( 'footer-three' ); ?></div>
 
 			<div class="clear"></div>
 
