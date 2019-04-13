@@ -45,6 +45,10 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 == Changelog ==
 
+Version 1.29 (2019-04-07)
+-------------------------
+- Added the new wp_body_open() function, along with a function_exists check
+
 Version 1.28 (2018-12-20)
 -------------------------
 - Combined index.php, archive.php, and search.php into index.php

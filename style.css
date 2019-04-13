@@ -4,12 +4,12 @@
 
 	Theme Name: Lovecraft
     Text Domain: lovecraft
-	Theme URI: http://www.andersnoren.se/teman/lovecraft-wordpress-theme/
-	Version: 1.28
-	Description: Lovecraft is a beautiful two-column theme for bloggers. It features a responsive design, great typography, Gutenberg support, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, a Flickr widget, recent posts and recent comments widgets with thumbnails, and a full-width template. Demo: http://www.andersnoren.se/themes/lovecraft/
+	Theme URI: https://www.andersnoren.se/teman/lovecraft-wordpress-theme/
+	Version: 1.29
+	Description: Lovecraft is a beautiful two-column theme for bloggers. It features a responsive design, great typography, Block Editor/Gutenberg support, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, a Flickr widget, recent posts and recent comments widgets with thumbnails, and a full-width template. Demo: https://www.andersnoren.se/themes/lovecraft/
 	Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 	Author: Anders Norén
-	Author URI: http://www.andersnoren.se
+	Author URI: https://www.andersnoren.se
 	License: GNU General Public License version 2.0
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -1157,8 +1157,9 @@ figure {
 	font-weight: 700;
 }
 
-.post-content input,
-.post-content textarea { 
+input,
+select,
+textarea { 
 	font-family: 'Lato', Helvetica, sans-serif; 
 }
 
@@ -1167,7 +1168,8 @@ figure {
 .post-content input[type="url"],
 .post-content input[type="email"],
 .post-content input[type="password"],
-.post-content textarea {
+.post-content textarea,
+select {
 	width: 100%;
 	padding: 20px;
 	border: 1px solid #ddd;
@@ -1177,6 +1179,13 @@ figure {
 	border-radius: 0;
 	-moz-appearance: none;
 	-webkit-appearance: none;
+}
+
+select {
+	background-image: url( ./images/icons/chevron-down-black.svg );
+	background-position: calc( 100% - 20px ) center;
+	background-repeat: no-repeat;
+	background-size: 15px 9px;
 }
 
 .post-content input[type="file"] {

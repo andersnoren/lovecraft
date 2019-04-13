@@ -20,7 +20,7 @@
 
 	<div class="credits-inner section-inner">
 
-		<p><?php _e( 'Powered by', 'lovecraft' ); ?> <a href="http://www.wordpress.org">WordPress</a> <span class="sep">&amp;</span> <span><?php _e( 'Theme by', 'lovecraft' ) ?> <a href="http://www.andersnoren.se">Anders Nor&eacute;n</a></span></p>
+		<p><?php _e( 'Powered by', 'lovecraft' ); ?> <a href="https://www.wordpress.org">WordPress</a> <span class="sep">&amp;</span> <span><?php _e( 'Theme by', 'lovecraft' ) ?> <a href="https://www.andersnoren.se">Anders Nor&eacute;n</a></span></p>
 
 	</div><!-- .section-inner -->
 
