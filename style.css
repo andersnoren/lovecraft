@@ -5,9 +5,9 @@
 	Theme Name: Lovecraft
     Text Domain: lovecraft
 	Theme URI: https://www.andersnoren.se/teman/lovecraft-wordpress-theme/
-	Version: 1.29
+	Version: 1.31
 	Description: Lovecraft is a beautiful two-column theme for bloggers. It features a responsive design, great typography, Block Editor/Gutenberg support, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, a Flickr widget, recent posts and recent comments widgets with thumbnails, and a full-width template. Demo: https://www.andersnoren.se/themes/lovecraft/
-	Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
+	Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
 	Author: Anders Norén
 	Author URI: https://www.andersnoren.se
 	License: GNU General Public License version 2.0
@@ -171,35 +171,58 @@ body a,
 }
 
 
-/* Screen Reader Text --------------------------------------- */
-
+/* Screen Reader Text ------------------------ */
 
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
+	clip: rect( .1rem, .1rem, .1rem, .1rem );
+	height: .1rem;
 	overflow: hidden;
+	position: absolute !important;
+		left: -999999rem;
+	width: .1rem;
 }
 
 .screen-reader-text:focus {
 	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	border-radius: .3rem;
+	box-shadow: 0 0 .2rem .2rem rgba( 0, 0, 0, 0.6 );
 	clip: auto !important;
-	color: #21759b;
 	display: block;
-	font-size: 14px;
-	font-size: 0.875rem;
-	font-weight: bold;
+	font-size: 1.4rem;
+	font-weight: 700;
 	height: auto;
-	left: 5px;
+	left: .5rem;
 	line-height: normal;
-	padding: 15px 23px 14px;
+	padding: 1.5rem 2.3rem 1.4rem 2.3rem;
 	text-decoration: none;
-	top: 5px;
+	top: .5rem;
 	width: auto;
-	z-index: 100000; /* Above WP toolbar. */
+	z-index: 100000;
+}
+
+
+/* Skip Link --------------------------------- */
+
+.skip-link {
+	position: absolute;
+		left: -9999rem;
+		top: 2.5rem;
+	z-index: 999999999;
+}
+
+.skip-link:focus {
+	left: 2.5rem;
+	text-decoration: none;
+}
+
+
+/* Accessibility Settings -------------------- */
+
+@media ( prefers-reduced-motion: reduce ) {
+	* {
+		animation-duration: 0s !important;
+		transition-duration: 0s !important;
+	}
 }
 
 
@@ -1209,6 +1232,7 @@ select {
 	outline: none;
 }
 
+.button,
 .post-content input[type="submit"],
 .post-content input[type="reset"],
 .post-content input[type="button"] {
@@ -1219,6 +1243,7 @@ select {
 	background: #111;
 	font-size: 0.8rem;
 	line-height: 1;
+	font-family: 'Lato', Helvetica, sans-serif;
 	font-weight: 900;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -1235,17 +1260,13 @@ select {
 	margin-left: 5px;
 }
 
+.button:hover,
 .post-content input[type="submit"]:hover,
 .post-content input[type="reset"]:hover,
 .post-content input[type="button"]:hover {
 	cursor: pointer;
 	background: #ca2017;
 	color: #fff;
-}
-
-.post-content input[type="submit"]:focus,
-.post-content input[type="submit"]:active {
-	outline: none;
 }
 
 

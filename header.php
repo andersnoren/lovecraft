@@ -19,6 +19,8 @@
 		}
 		?>
 
+		<a class="skip-link button" href="#site-content"><?php _e( 'Skip to the content', 'lovecraft' ); ?></a>
+
 		<div class="header-wrapper">
 
 			<div class="header section bg-white small-padding">
@@ -128,7 +130,7 @@
 
 		</div><!-- .navigation -->
 
-		<?php if ( is_singular() && has_post_thumbnail() ) :
+		<?php if ( is_singular() && has_post_thumbnail() && ! post_password_required() ) :
 			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-image-cover' );
 			$post_image = $thumb['0'];
 			?>
@@ -159,3 +161,5 @@
 			</div>
 
 		<?php endif; ?>
+
+		<main id="site-content">

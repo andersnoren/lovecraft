@@ -618,6 +618,7 @@ class Lovecraft_Customize {
 			self::lovecraft_generate_css( '.post-content a', 'color', 'accent_color' );
 			self::lovecraft_generate_css( '.post-content a:hover', 'color', 'accent_color' );
 			self::lovecraft_generate_css( '.post-content blockquote:after', 'color', 'accent_color' );
+			self::lovecraft_generate_css( '.button:hover', 'background', 'accent_color' );
 			self::lovecraft_generate_css( '.post-content input[type="submit"]:hover', 'background', 'accent_color' );
 			self::lovecraft_generate_css( '.post-content input[type="button"]:hover', 'background', 'accent_color' );
 			self::lovecraft_generate_css( '.post-content input[type="reset"]:hover', 'background', 'accent_color' );

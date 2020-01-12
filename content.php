@@ -5,7 +5,7 @@
 	$post_type = get_post_type();
 	?>
 
-	<?php if ( has_post_thumbnail() ) : ?>
+	<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 
 		<a class="post-image" href="<?php the_permalink(); ?>">
 			<?php the_post_thumbnail( 'post-image' ); ?>

@@ -1,3 +1,5 @@
+</main><!-- #site-content -->
+
 <?php if ( is_active_sidebar( 'footer-one' ) || is_active_sidebar( 'footer-two' ) || is_active_sidebar( 'footer-three' ) ) : ?>
 
 	<div class="footer section big-padding bg-white">

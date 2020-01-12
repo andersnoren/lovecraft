@@ -16,6 +16,11 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+.editor-styles-wrapper > * {
+	font-family: Georgia, serif;
+	-webkit-font-smoothing: antialiased;
+}
+
 .editor-rich-text__tinymce * {
 	font-family: inherit !important;
 }
