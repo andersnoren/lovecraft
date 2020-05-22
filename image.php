@@ -2,7 +2,7 @@
 
 <div class="wrapper section">
 
-	<div class="section-inner">
+	<div class="section-inner group">
 
 		<div class="content">
 
@@ -10,19 +10,17 @@
 
 				while ( have_posts() ) : the_post(); ?>
 
-					<div id="post-<?php the_ID(); ?>" <?php post_class( 'single post' ); ?>>
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'single post' ); ?>>
 
-						<div class="post-image">
-
+						<figure class="post-image">
 							<?php echo wp_get_attachment_image( $post->ID, 'post-image' ); ?>
-
-						</div>
+						</figure>
 
 						<div class="post-inner">
 
 							<div class="post-header">
 
-								<h2 class="post-title"><?php echo basename( get_attached_file( $post->ID ) ); ?></h2>
+								<h1 class="post-title"><?php echo basename( get_attached_file( $post->ID ) ); ?></h1>
 
 								<div class="post-meta">
 
@@ -66,13 +64,11 @@
 
 				endif; ?>
 
-			</div><!-- .post -->
+			</article><!-- .post -->
 
 		</div><!-- .content -->
 
 		<?php get_sidebar(); ?>
-
-		<div class="clear"></div>
 
 	</div><!-- .section-inner -->
 

@@ -2,11 +2,11 @@
 
 <div class="wrapper section">
 
-	<div class="section-inner">
+	<div class="section-inner group">
 
 		<div class="content">
 
-			<div class="post single">
+			<article class="post single">
 
 				<div class="post-inner">
 
@@ -26,13 +26,11 @@
 
 				</div><!-- .post-inner -->
 
-			</div><!-- .post -->
+			</article><!-- .post -->
 
 		</div><!-- .content -->
 
 		<?php get_sidebar(); ?>
-
-		<div class="clear"></div>
 
 	</div><!-- .section-inner -->
 

@@ -1,8 +1,8 @@
 === Lovecraft ===
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
-Requires at least: 4.4
-Tested up to: 5.2
+Requires at least: 4.5
+Tested up to: 5.4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -45,6 +45,52 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 == Changelog ==
 
+Version 2.0.0 (2020-05-22)
+-------------------------
+- Updated "Tested up to" to 5.4.1.
+- Updated "Requires at least" to 4.5, since Lovecraft is now using `custom_logo`.
+- Removed the Flickr widget, since the API it was using will be deprecated by Flickr.
+- Cleaned up widgets, made them pluggable, fixed escaping.
+- Updated the folder structure to include the `/inc/` and `/assets/` folders at the root.
+- Removed `license.txt`.
+- Minified `genericons.css` (unminified version is included as well).
+- Minified `doubeltaptogo.js` (unminified version is included as well).
+- Added unique id attributes to the search form.
+- CSS: Reworked reset to inherit instead of reset.
+- Replaced `<div class="clear"></div>` element with pseudo clearing.
+- Removed all title attributes on links.
+- Removed "Comments are closed" message in comments template.
+- Added widget ID output to widget areas.
+- Moved the archive navigation to `pagination.php`.
+- Collected registration and deregistration of widgets in a single function.
+- Removed unnecessary admin CSS.
+- Renamed the "Regular" block editor font size to "Normal", to match expected block editor naming.
+- Made block editor colors and font sizes target classes globally, rather than just in the `.post-content` wrapper.
+- Added block editor colors to the block editor styles.
+- Added theme version to enqueues.
+- Cleanup of `functions.php`.
+- Moved the Customizer class to `/inc/classes/class-lovecraft-customize.php`, made it pluggable.
+- Updated the Customizer accent color styles to only be output if the accent color selected differs from the default.
+- Removed live preview of Customizer settings.
+- Added support for the core custom_logo setting, and updated the old lovecraft_logo setting to only be displayed if you already have a lovecraft_logo image set (thanks, @poena).
+- CSS: Removed removal of outline.
+- CSS: Default links to have underline, and to remove the underline on hover.
+- Updated template files to use more semantic HTML5 elements.
+- Made the old post content styles global, as part of the new "Element Base" CSS section.
+- Collected the block styles in the new "Blocks" CSS section.
+- Added base block margins.
+- Updated block styles.
+- Added styles to more inputs and button elements.
+- Display sub menus on focus.
+- Made the main menu more flexible in handling multi-line menu items.
+- Added output of archive description to archive pages.
+- Added the "Requires at least" and "Tested up to" fields to style.css.
+- Fixed notice in the recent posts widget.
+- Output `the_excerpt()` instead of `the_content()` when displaying search results.
+- Updated block editor styles.
+- Updated the style.css TOC.
+- Changed the file format of the theme screenshot to JPG, reducing file size by ~400 KB.
+
 Version 1.31 (2019-07-21)
 -------------------------
 - Updated "Tested up to"
@@ -76,20 +122,20 @@ Version 1.28 (2018-12-20)
 
 Version 1.27 (2018-12-07)
 -------------------------
-- Fixed Gutenberg style changes required due to changes in the block editor CSS and classes
+- Fixed Block Editor style changes required due to changes in the block editor CSS and classes
 - Fixed the Classic Block TinyMCE buttons being set to the wrong font
 
 Version 1.26 (2018-11-30)
 -------------------------
-- Fixed Gutenberg editor styles font being overwritten
+- Fixed Block Editor editor styles font being overwritten
 
 Version 1.25 (2018-10-20)
 -------------------------
-- Updated with Gutenberg support
-	- Gutenberg editor styles
-	- Styling of Gutenberg blocks
-	- Custom Lovecraft Gutenberg palette
-	- Custom Lovecraft Gutenberg typography styles
+- Updated with Block Editor support
+	- Block Editor editor styles
+	- Styling of Block Editor blocks
+	- Custom Lovecraft Block Editor palette
+	- Custom Lovecraft Block Editor typography styles
 - Added option to disable Google Fonts with a translateable string
 - Updated theme description
 - Removed the languages sub folder, since that is handled by WordPress.org

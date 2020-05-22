@@ -12,7 +12,7 @@ if ( have_comments() ) : ?>
 
 			<a name="comments"></a>
 
-			<div class="comments-title-container">
+			<div class="comments-title-container group">
 
 				<h2 class="comments-title">
 
@@ -24,18 +24,10 @@ if ( have_comments() ) : ?>
 				</h2>
 
 				<?php if ( comments_open() ) : ?>
-
-					<p class="comments-title-link">
-
-						<a href="#respond"><?php _e( 'Add Comment', 'lovecraft' ); ?> &rarr;</a>
-
-					</p>
-
+					<p class="comments-title-link"><a href="#respond"><?php _e( 'Add Comment', 'lovecraft' ); ?> &rarr;</a></p>
 				<?php endif; ?>
 
-				<div class="clear"></div>
-
-			</div>
+			</div><!-- .comments-title-container -->
 
 			<div class="comments">
 
@@ -71,25 +63,10 @@ if ( have_comments() ) : ?>
 				<?php endif; ?>
 
 				<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-
-					<div class="comments-nav" role="navigation">
-
-						<div class="fleft">
-
-							<?php previous_comments_link( '&larr; ' . __( 'Previous', 'lovecraft' ) ); ?>
-
-						</div>
-
-						<div class="fright">
-
-							<?php next_comments_link( __( 'Next', 'lovecraft' ) . ' &rarr;' ); ?>
-
-						</div>
-
-						<div class="clear"></div>
-
+					<div class="comments-nav group" role="navigation">
+						<div class="fleft"><?php previous_comments_link( __( 'Previous', 'lovecraft' ) ); ?></div>
+						<div class="fright"><?php next_comments_link( __( 'Next', 'lovecraft' ) ); ?></div>
 					</div><!-- .comment-nav-below -->
-
 				<?php endif; ?>
 
 			</div><!-- .comments -->
@@ -101,28 +78,9 @@ if ( have_comments() ) : ?>
 	<?php 
 endif;
 
-if ( ! comments_open() && ! is_page() ) : ?>
-
-	<div class="comments-container">
-
-		<div class="comments-inner">
-
-			<p class="no-comments"><?php _e( 'Comments are closed.', 'lovecraft' ); ?></p>
-
-		</div>
-
-	</div>
-
-	<?php 
-endif;
-
 if ( comments_open() ) {
 	echo '<div class="respond-container">';
-}
-
-comment_form();
-
-if ( comments_open() ) {
+	comment_form();
 	echo '</div><!-- .respond-container -->';
 }
 

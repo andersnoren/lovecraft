@@ -1,34 +1,38 @@
-</main><!-- #site-content -->
+		</main><!-- #site-content -->
 
-<?php if ( is_active_sidebar( 'footer-one' ) || is_active_sidebar( 'footer-two' ) || is_active_sidebar( 'footer-three' ) ) : ?>
+		<?php if ( is_active_sidebar( 'footer-one' ) || is_active_sidebar( 'footer-two' ) || is_active_sidebar( 'footer-three' ) ) : ?>
 
-	<div class="footer section big-padding bg-white">
+			<footer class="footer section big-padding bg-white">
+				<div class="section-inner group">
 
-		<div class="section-inner">
+					<?php if ( is_active_sidebar( 'footer-one' ) ) : ?>
+						<div class="widgets"><?php dynamic_sidebar( 'footer-one' ); ?></div>
+					<?php endif; ?>
+					
+					<?php if ( is_active_sidebar( 'footer-two' ) ) : ?>
+						<div class="widgets"><?php dynamic_sidebar( 'footer-two' ); ?></div>
+					<?php endif; ?>
 
-			<div class="widgets"><?php dynamic_sidebar( 'footer-one' ); ?></div>
-			<div class="widgets"><?php dynamic_sidebar( 'footer-two' ); ?></div>
-			<div class="widgets"><?php dynamic_sidebar( 'footer-three' ); ?></div>
+					<?php if ( is_active_sidebar( 'footer-three' ) ) : ?>
+						<div class="widgets"><?php dynamic_sidebar( 'footer-three' ); ?></div>
+					<?php endif; ?>
 
-			<div class="clear"></div>
+				</div><!-- .section-inner -->
+			</footer><!-- .footer.section -->
 
-		</div><!-- .section-inner -->
+		<?php endif; ?>
 
-	</div><!-- .footer.section -->
+		<div class="credits section bg-dark">
 
-<?php endif; ?>
+			<div class="credits-inner section-inner">
 
-<div class="credits section bg-dark">
+				<p class="powered-by"><?php _e( 'Powered by', 'lovecraft' ); ?> <a href="https://www.wordpress.org">WordPress</a> <span class="sep">&amp;</span> <span class="theme-by"><?php _e( 'Theme by', 'lovecraft' ) ?> <a href="https://www.andersnoren.se">Anders Nor&eacute;n</a></span></p>
 
-	<div class="credits-inner section-inner">
+			</div><!-- .section-inner -->
 
-		<p><?php _e( 'Powered by', 'lovecraft' ); ?> <a href="https://www.wordpress.org">WordPress</a> <span class="sep">&amp;</span> <span><?php _e( 'Theme by', 'lovecraft' ) ?> <a href="https://www.andersnoren.se">Anders Nor&eacute;n</a></span></p>
+		</div><!-- .credits.section -->
 
-	</div><!-- .section-inner -->
+		<?php wp_footer(); ?>
 
-</div><!-- .credits.section -->
-
-<?php wp_footer(); ?>
-
-</body>
+	</body>
 </html>

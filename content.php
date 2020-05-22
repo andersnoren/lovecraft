@@ -7,9 +7,11 @@
 
 	<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 
-		<a class="post-image" href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail( 'post-image' ); ?>
-		</a><!-- .featured-media -->
+		<figure class="post-image">
+			<a href="<?php the_permalink(); ?>">
+				<?php the_post_thumbnail( 'post-image' ); ?>
+			</a><!-- .featured-media -->
+		</figure><!-- .post-image -->
 
 	<?php endif; ?>
 
@@ -28,8 +30,9 @@
 				
 				if ( is_sticky() ) : ?>
 
-					<a href="<?php the_permalink(); ?>" title="<?php _e( 'Sticky post', 'lovecraft' ) ?>" class="sticky-post">
+					<a href="<?php the_permalink(); ?>" class="sticky-post">
 						<div class="genericon genericon-star"></div>
+						<span class="screen-reader-text"><?php _e( 'Sticky post', 'lovecraft' ) ?></span>
 					</a>
 
 					<?php 
@@ -47,11 +50,15 @@
 
 		<?php if ( get_the_content() ) : ?>
 
-			<div class="post-content">
-				<?php the_content(); ?>
+			<div class="post-content entry-content">
+				<?php 
+				if ( is_search() ) {
+					the_excerpt();
+				} else {
+					the_content();
+				}
+				?>
 			</div>
-
-			<div class="clear"></div>
 
 			<?php
 		endif;

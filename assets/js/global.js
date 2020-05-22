@@ -32,7 +32,12 @@ jQuery( document ).ready( function( $ ) {
 	} );
 
 	// Dropdown menus on touch devices
-	$( '.main-menu li:has(ul)' ).doubleTapToGo();
+	$( '.main-menu li.menu-item-has-children' ).doubleTapToGo();
+
+	// Display dropdown menus on focus.
+	$( '.main-menu a' ).on( 'blur focus', function( e ) {
+		$( this ).parents( 'li.menu-item-has-children' ).toggleClass( 'focus' );
+	} );
 
 	// Resize videos after container
 	var vidSelector = ".post iframe, .post object, .post video, .widget-content iframe, .widget-content object, .widget-content iframe";

@@ -2,7 +2,7 @@
 
 <div class="wrapper section">
 
-	<div class="section-inner">
+	<div class="section-inner group">
 
 		<div class="content">
 
@@ -12,32 +12,27 @@
 
 			$archive_title = '';
 			$archive_subtitle = '';
+			$archive_description = get_the_archive_description();
 
 			if ( 1 < $paged || is_archive() || is_search() ) {
 
-				$page_number = '';
-
-				if ( $paged != $wp_query->max_num_pages ) {
-					$page_number = sprintf( _x( 'Page %1$s of %2$s', 'Translators: %1$s = current page, %2$s = max number of pages', 'lovecraft' ), $paged, $wp_query->max_num_pages );
+				if ( $wp_query->max_num_pages && $paged != $wp_query->max_num_pages ) {
+					$archive_subtitle = sprintf( _x( 'Page %1$s of %2$s', 'Translators: %1$s = current page, %2$s = max number of pages', 'lovecraft' ), $paged, $wp_query->max_num_pages );
 				}
 				
 				if ( is_archive() ) {
 					$archive_title = get_the_archive_title();
-					$archive_subtitle = $page_number;
 				} elseif ( is_search() ) {
 					$archive_title = sprintf( _x( 'Search results: "%s"', 'Translators: %s = search query text', 'lovecraft' ), get_search_query() );
-					$archive_subtitle = $page_number;
-				} else {
-					$archive_title = $page_number;
 				}
 
 			}
 
 			if ( $archive_title ) : ?>
 
-				<div class="page-title">
+				<div class="archive-header">
 
-					<h4>
+					<h1 class="archive-title">
 
 						<?php echo $archive_title; ?>
 
@@ -45,9 +40,17 @@
 							<span><?php echo $archive_subtitle; ?></span>
 						<?php endif; ?>
 
-					</h4>
+					</h1>
 
-				</div><!-- .page-title -->
+					<?php if ( $archive_description ) : ?>
+
+						<div class="archive-description">
+							<?php echo wp_kses_post( wpautop( $archive_description ) ); ?>
+						</div><!-- .archive-description -->
+
+					<?php endif; ?>
+
+				</div><!-- .archive-header -->
 
 			<?php endif; ?>
 
@@ -69,7 +72,7 @@
 			elseif ( is_search() ) : 
 				?>
 
-				<div class="post single">
+				<article class="post single">
 
 					<div class="post-inner">
 
@@ -83,17 +86,15 @@
 
 					</div><!-- .post-inner -->
 
-				</div><!-- .post -->
+				</article><!-- .post -->
 
 			<?php endif; ?>
 
-			<?php lovecraft_archive_navigation(); ?>
+			<?php get_template_part( 'pagination' ); ?>
 
 		</div><!-- .content -->
 
 		<?php get_sidebar(); ?>
-
-		<div class="clear"></div>
 
 	</div><!-- .section-inner -->
 
