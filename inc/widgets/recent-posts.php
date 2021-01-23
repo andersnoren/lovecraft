@@ -130,7 +130,7 @@ if ( ! class_exists( 'Lovecraft_Recent_Posts' ) ) :
 			$instance['widget_title'] = isset( $new_instance['widget_title'] ) ? strip_tags( $new_instance['widget_title'] ) : '';
 
 			// Make sure we are getting a number
-			$instance['number_of_posts'] = isset( $new_instance['number_of_posts'] ) && is_int( $new_instance['number_of_posts'] ) ? $new_instance['number_of_posts'] : 5;
+			$instance['number_of_posts'] = isset( $new_instance['number_of_posts'] ) ? absint( $new_instance['number_of_posts'] ) : 5;
 
 			// Update and save the widget
 			return $instance;
@@ -154,7 +154,7 @@ if ( ! class_exists( 'Lovecraft_Recent_Posts' ) ) :
 
 			<p>
 				<label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>"><?php _e( 'Number of posts to display', 'lovecraft' ); ?>:
-				<input id="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_of_posts' ) ); ?>" type="text" class="widefat" value="<?php echo esc_attr( $number_of_posts ); ?>" /></label>
+				<input id="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_of_posts' ) ); ?>" type="number" class="widefat" value="<?php echo esc_attr( $number_of_posts ); ?>" /></label>
 				<small>(<?php _e( 'Defaults to 5 if empty', 'lovecraft' ); ?>)</small>
 			</p>
 
