@@ -111,15 +111,8 @@ if ( ! function_exists( 'lovecraft_load_style' ) ) :
 		$dependencies = array();
 		$theme_version = wp_get_theme( 'lovecraft' )->get( 'Version' );
 
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by the theme fonts, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		if ( 'off' !== _x( 'on', 'Google Fonts: on or off', 'lovecraft' ) ) {
-			wp_register_style( 'lovecraft_googlefonts', '//fonts.googleapis.com/css?family=Lato:400,700,900|Playfair+Display:400,700,400italic' );
-			$dependencies[] = 'lovecraft_googlefonts';
-		}
+		wp_register_style( 'lovecraft_googlefonts', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		$dependencies[] = 'lovecraft_googlefonts';
 
 		wp_register_style( 'lovecraft_genericons', get_template_directory_uri() . '/assets/css/genericons.min.css' );
 		$dependencies[] = 'lovecraft_genericons';
@@ -138,17 +131,7 @@ endif;
 if ( ! function_exists( 'lovecraft_add_editor_styles' ) ) :
 	function lovecraft_add_editor_styles() {
 
-		add_editor_style( 'lovecraft-editor-styles.css' );
-
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by the theme fonts, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		if ( 'off' !== _x( 'on', 'Google Fonts: on or off', 'lovecraft' ) ) {
-			$font_url = '//fonts.googleapis.com/css?family=Lato:400,700,900|Playfair+Display:400,700,400italic';
-			add_editor_style( str_replace( ', ', '%2C', $font_url ) );
-		}
+		add_editor_style( array( 'lovecraft-editor-styles.css', '/assets/css/fonts.css' ) );
 
 	}
 	add_action( 'init', 'lovecraft_add_editor_styles' );
@@ -510,20 +493,10 @@ endif;
 if ( ! function_exists( 'lovecraft_block_editor_styles' ) ) :
 	function lovecraft_block_editor_styles() {
 
-		$dependencies = array();
 		$theme_version = wp_get_theme( 'lovecraft' )->get( 'Version' );
 
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by the theme fonts, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		if ( 'off' !== _x( 'on', 'Google Fonts: on or off', 'lovecraft' ) ) {
-			wp_register_style( 'lovecraft-block-editor-styles-font', '//fonts.googleapis.com/css?family=Lato:400,700,900|Playfair+Display:400,700,400italic' );
-			$dependencies[] = 'lovecraft-block-editor-styles-font';
-		}
-
-		wp_enqueue_style( 'lovecraft-block-editor-styles', get_theme_file_uri( '/assets/css/lovecraft-block-editor-styles.css' ), $dependencies, $theme_version );
+		wp_register_style( 'lovecraft-block-editor-styles-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		wp_enqueue_style( 'lovecraft-block-editor-styles', get_theme_file_uri( '/assets/css/lovecraft-block-editor-styles.css' ), array( 'lovecraft-block-editor-styles-font' ), $theme_version );
 
 	}
 	add_action( 'enqueue_block_editor_assets', 'lovecraft_block_editor_styles' );

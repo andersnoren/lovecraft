@@ -64,7 +64,7 @@
 
 /* Typography -------------------------------- */
 
-.editor-post-title__block .editor-post-title__input {
+.edit-post-visual-editor__post-title-wrapper .editor-post-title {
 	color: #111;
 	font-family: 'Playfair Display', Georgia, serif !important;
 	font-size: 44px;

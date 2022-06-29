@@ -26,7 +26,7 @@
 
 			<div class="credits-inner section-inner">
 
-				<p class="powered-by"><?php _e( 'Powered by', 'lovecraft' ); ?> <a href="https://www.wordpress.org">WordPress</a> <span class="sep">&amp;</span> <span class="theme-by"><?php _e( 'Theme by', 'lovecraft' ) ?> <a href="https://www.andersnoren.se">Anders Nor&eacute;n</a></span></p>
+				<p class="powered-by"><?php _e( 'Powered by', 'lovecraft' ); ?> <a href="https://www.wordpress.org">WordPress</a> <span class="sep">&amp;</span> <span class="theme-by"><?php _e( 'Theme by', 'lovecraft' ) ?> <a href="https://andersnoren.se">Anders Nor&eacute;n</a></span></p>
 
 			</div><!-- .section-inner -->
 
