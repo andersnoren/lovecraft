@@ -143,10 +143,14 @@
 
 		<?php else :
 
+			$header_image_alt = '';
+
 			if ( get_header_image() ) {
-				$header_image = get_header_image();
-				$header_image_data = get_theme_mod( 'header_image_data' );
-				$header_image_alt = get_post_meta( $header_image_data->attachment_id, '_wp_attachment_image_alt', true );
+				$header_image 		= get_header_image();
+				$header_image_data 	= get_theme_mod( 'header_image_data' );
+				if ( $header_image_data ) {
+					$header_image_alt = get_post_meta( $header_image_data->attachment_id, '_wp_attachment_image_alt', true );
+				}
 			} else {
 				$header_image = get_template_directory_uri() . '/assets/images/header.jpg';
 				$header_image_alt = get_bloginfo( 'name' );

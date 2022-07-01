@@ -111,13 +111,13 @@ if ( ! function_exists( 'lovecraft_load_style' ) ) :
 		$dependencies = array();
 		$theme_version = wp_get_theme( 'lovecraft' )->get( 'Version' );
 
-		wp_register_style( 'lovecraft_googlefonts', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		wp_register_style( 'lovecraft_googlefonts', get_theme_file_uri( '/assets/css/fonts.css' ) );
 		$dependencies[] = 'lovecraft_googlefonts';
 
 		wp_register_style( 'lovecraft_genericons', get_template_directory_uri() . '/assets/css/genericons.min.css' );
 		$dependencies[] = 'lovecraft_genericons';
 
-		wp_enqueue_style( 'lovecraft_style', get_stylesheet_uri(), $dependencies, $theme_version );
+		wp_enqueue_style( 'lovecraft_style', get_template_directory_uri() . '/style.css', $dependencies, $theme_version );
 
 	}
 	add_action( 'wp_enqueue_scripts', 'lovecraft_load_style' );

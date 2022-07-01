@@ -46,6 +46,11 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 == Changelog ==
 
+Version 2.1.1 (2022-07-01)
+-------------------------
+- Fixed potential notice for missing header image.
+- Improved fonts.css enqueue for child themes.
+
 Version 2.1 (2022-06-29)
 -------------------------
 - Switched from the Google Fonts CDN to font files included in the theme folder.
