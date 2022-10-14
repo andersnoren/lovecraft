@@ -2,7 +2,7 @@
 
 Lovecraft is a beautiful two-column theme for bloggers. It features a responsive design, great typography, Block Editor support, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, recent posts and recent comments widgets with thumbnails, and a full-width template.
 
-![Lovecraft](https://github.com/andersnoren/lovecraft/blob/main/screenshot.png)
+![Lovecraft](https://github.com/andersnoren/lovecraft/blob/master/screenshot.jpg)
 
 You can download the latest stable release of Lovecraft [from WordPress.org](https://wordpress.org/themes/lovecraft/).
 
