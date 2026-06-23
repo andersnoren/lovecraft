@@ -54,9 +54,6 @@ if ( ! function_exists( 'lovecraft_setup' ) ) :
 			'footer' 	=> false,
 		) );
 
-		// Add nav menu
-		register_nav_menu( 'primary', __( 'Primary Menu', 'lovecraft' ) );
-
 		// Make the theme translation ready
 		load_theme_textdomain( 'lovecraft', get_template_directory() . '/languages' );
 
@@ -77,6 +74,26 @@ require get_template_directory() . '/inc/widgets/recent-comments.php';
 
 // Recent posts widget
 require get_template_directory() . '/inc/widgets/recent-posts.php';
+
+
+/*	-----------------------------------------------------------------------------------------------
+	MENUS
+	Register navigational menus (wp_nav_menu)
+--------------------------------------------------------------------------------------------------- */
+
+if ( ! function_exists( 'lovecraft_menus' ) ) :
+	function lovecraft_menus() {
+
+		// Register menus
+		$locations = array(
+			'primary' => __( 'Primary Menu', 'lovecraft' ),
+		);
+
+		register_nav_menus( $locations );
+
+	}
+	add_action( 'init', 'lovecraft_menus' );
+endif;
 
 
 /* ---------------------------------------------------------------------------------------------

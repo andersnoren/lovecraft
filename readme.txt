@@ -3,10 +3,26 @@ Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
 Requires PHP: 5.4
-Tested up to: 6.0
+Tested up to: 7.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+
+== Copyright ==
+
+Lovecraft WordPress Theme, (C) 2014 Anders Norén.
+Lovecraft is distributed under the terms of the GNU GPL.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
 
 == Installation ==
@@ -45,6 +61,12 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 
 == Changelog ==
+
+Version 2.1.2 (2026-06-23)
+-------------------------
+- Moved register_nav_menus() to init hook to prevent issues with the "_load_textdomain_just_in_time was called incorrectly" notice.
+- Bumped "Tested up to" to 7.0.
+- Added copyright text to readme.txt.
 
 Version 2.1.1 (2022-07-01)
 -------------------------
