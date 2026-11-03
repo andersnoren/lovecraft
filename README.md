@@ -25,4 +25,4 @@ Do you want to support the continued development of Lovecraft? You can send me a
 
 ## Resources
 - [About Lovecraft](https://andersnoren.se/teman/lovecraft-wordpress-theme/)
-- [Lovecraft demo site](https://andersnoren.se/themes/lovecraft/)
+- [Lovecraft demo site](https://lovecraft.andersnoren.se)

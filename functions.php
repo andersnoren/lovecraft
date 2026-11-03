@@ -52,6 +52,7 @@ if ( ! function_exists( 'lovecraft_setup' ) ) :
 			'type' 		=> 'click',
 			'container'	=> 'posts',
 			'footer' 	=> false,
+			'render' 	=> 'lovecraft_infinite_scroll_render',
 		) );
 
 		// Make the theme translation ready
@@ -97,6 +98,42 @@ endif;
 
 
 /* ---------------------------------------------------------------------------------------------
+   JETPACK INFINITE SCROLL
+   --------------------------------------------------------------------------------------------- */
+
+if ( ! function_exists( 'lovecraft_infinite_scroll_render' ) ) :
+	function lovecraft_infinite_scroll_render() {
+
+		while ( have_posts() ) {
+			the_post();
+			get_template_part( 'content', get_post_format() );
+		}
+
+		// Jetpack calls wp_head() right after the render callback, inside the same output buffer, which adds
+		// the contents of <head> to the loaded posts. Buffer and discard that output. The wp_head actions still
+		// run, so Jetpack can still pick up any scripts and styles enqueued by the new posts.
+		add_action( 'wp_head', 'lovecraft_infinite_scroll_head_buffer_start', -99999 );
+		add_action( 'wp_head', 'lovecraft_infinite_scroll_head_buffer_end', PHP_INT_MAX );
+
+	}
+endif;
+
+if ( ! function_exists( 'lovecraft_infinite_scroll_head_buffer_start' ) ) :
+	function lovecraft_infinite_scroll_head_buffer_start() {
+		ob_start();
+	}
+endif;
+
+if ( ! function_exists( 'lovecraft_infinite_scroll_head_buffer_end' ) ) :
+	function lovecraft_infinite_scroll_head_buffer_end() {
+		ob_end_clean();
+		remove_action( 'wp_head', 'lovecraft_infinite_scroll_head_buffer_start', -99999 );
+		remove_action( 'wp_head', 'lovecraft_infinite_scroll_head_buffer_end', PHP_INT_MAX );
+	}
+endif;
+
+
+/* ---------------------------------------------------------------------------------------------
    ENQUEUE SCRIPTS
    --------------------------------------------------------------------------------------------- */
 
@@ -105,7 +142,7 @@ if ( ! function_exists( 'lovecraft_load_javascript_files' ) ) :
 
 		$theme_version = wp_get_theme( 'lovecraft' )->get( 'Version' );
 
-		wp_register_script( 'lovecraft_doubletap', get_template_directory_uri() . '/assets/js/doubletaptogo.min.js', $theme_version, true );
+		wp_register_script( 'lovecraft_doubletap', get_template_directory_uri() . '/assets/js/doubletaptogo.min.js', array( 'jquery' ), $theme_version, true );
 
 		wp_enqueue_script( 'lovecraft_global', get_template_directory_uri() . '/assets/js/global.js', array( 'jquery', 'lovecraft_doubletap' ), $theme_version, true );
 
@@ -148,7 +185,7 @@ endif;
 if ( ! function_exists( 'lovecraft_add_editor_styles' ) ) :
 	function lovecraft_add_editor_styles() {
 
-		add_editor_style( array( 'lovecraft-editor-styles.css', '/assets/css/fonts.css' ) );
+		add_editor_style( array( 'assets/css/lovecraft-classic-editor-styles.css', 'assets/css/fonts.css' ) );
 
 	}
 	add_action( 'init', 'lovecraft_add_editor_styles' );
@@ -510,11 +547,16 @@ endif;
 if ( ! function_exists( 'lovecraft_block_editor_styles' ) ) :
 	function lovecraft_block_editor_styles() {
 
+		// Only load in the editor. Hooked to enqueue_block_assets so the styles reach the iframed editor canvas.
+		if ( ! is_admin() ) {
+			return;
+		}
+
 		$theme_version = wp_get_theme( 'lovecraft' )->get( 'Version' );
 
-		wp_register_style( 'lovecraft-block-editor-styles-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		wp_register_style( 'lovecraft-block-editor-styles-font', get_theme_file_uri( '/assets/css/fonts.css' ) );
 		wp_enqueue_style( 'lovecraft-block-editor-styles', get_theme_file_uri( '/assets/css/lovecraft-block-editor-styles.css' ), array( 'lovecraft-block-editor-styles-font' ), $theme_version );
 
 	}
-	add_action( 'enqueue_block_editor_assets', 'lovecraft_block_editor_styles' );
+	add_action( 'enqueue_block_assets', 'lovecraft_block_editor_styles', 1 );
 endif;

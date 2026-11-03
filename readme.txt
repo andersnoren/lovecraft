@@ -3,15 +3,22 @@ Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
 Requires PHP: 5.4
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
+A beautiful two-column theme for bloggers.
+
+
+== Description ==
+
+Lovecraft is a beautiful two-column theme for bloggers. It features a responsive design, great typography, Block Editor support, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, recent posts and recent comments widgets with thumbnails, and a full-width template. Demo: https://lovecraft.andersnoren.se
+
 
 == Copyright ==
 
-Lovecraft WordPress Theme, (C) 2014 Anders Norén.
+Lovecraft WordPress Theme, (C) 2014-2026 Anders Norén.
 Lovecraft is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
@@ -33,6 +40,15 @@ GNU General Public License for more details.
 All theme specific options are handled through the WordPress Customizer.
 
 
+== Frequently Asked Questions ==
+
+= Where can I get support? =
+Post your question in the Lovecraft support forum on WordPress.org: https://wordpress.org/support/theme/lovecraft/
+
+= Where can I request a feature or report a bug? =
+Open an issue in the Lovecraft GitHub repository: https://github.com/andersnoren/lovecraft
+
+
 == Licenses ==
 
 Lato
@@ -49,11 +65,11 @@ Source: http://genericons.com
 
 Included header image
 License: CC0 Public Domain 
-Source: http://www.unsplash.com
+Source: Unsplash (added before the 2017 change to the Unsplash license, when its photos were released under CC0)
 
-screenshot.png images
+screenshot.jpg images
 License: CC0 Public Domain 
-Source: http://www.unsplash.com
+Source: Unsplash (added before the 2017 change to the Unsplash license, when its photos were released under CC0)
 
 Doubletaptogo.js
 License: MIT License
@@ -61,6 +77,19 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 
 == Changelog ==
+
+Version 2.1.3 (2026-11-03)
+-------------------------
+- Tested with WordPress 7.1.
+- Fixed Jetpack Infinite Scroll adding the contents of the page <head> to the page when loading more posts.
+- Fixed JavaScript errors after Jetpack Infinite Scroll loads more posts, caused by leftover masonry and slider code that doesn't apply to Lovecraft.
+- Fixed the DoubleTapToGo script registration, which passed the version number in place of the dependencies.
+- Replaced the deprecated jQuery .resize() method with .on().
+- Fixed the block editor styles not loading in the iframed editor.
+- Fixed the classic editor styles not loading, since the stylesheet path was wrong.
+- Fixed the block editor fonts loading from the child theme folder when a child theme is active.
+- Updated the demo URL.
+- Added Description, FAQ and Upgrade Notice sections to the readme, and updated the image source notes.
 
 Version 2.1.2 (2026-06-23)
 -------------------------
@@ -312,3 +341,9 @@ Version 1.01 (2014-01-01)
 
 Version 1.00 (2014-01-01)
 ------------------------- 
+
+
+== Upgrade Notice ==
+
+= 2.1.3 =
+Tested with WordPress 7.1. Fixes Jetpack Infinite Scroll and the editor styles.

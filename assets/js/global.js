@@ -23,7 +23,7 @@ jQuery( document ).ready( function( $ ) {
 	} );
 
 	// Hide/show mobile menu/search block > 900
-	$( window ).resize( function() {
+	$( window ).on( 'resize', function() {
 		if ( $( window ).width() > 1000 ) {
 			$( ".toggle" ).removeClass( "active" );
 			$( ".mobile-menu" ).hide();
@@ -61,44 +61,15 @@ jQuery( document ).ready( function( $ ) {
 
 	resizeVideo( vidSelector );
 
-	$( window ).resize( function() {
+	$( window ).on( 'resize', function() {
 		resizeVideo( vidSelector );
 	} );
 
 	// When Jetpack Infinite scroll posts have loaded
 	$( document.body ).on( 'post-load', function() {
 
-		var $container = $( '.posts' );
-		$container.masonry( 'reloadItems' );
-
-		$blocks.imagesLoaded( function() {
-			$blocks.masonry({
-				itemSelector: '.post-container'
-			} );
-
-			// Fade blocks in after images are ready (prevents jumping and re-rendering)
-			$( ".post-container" ).fadeIn();
-		} );
-
 		// Rerun video resizing
 		resizeVideo( vidSelector );
-
-		$container.masonry( 'reloadItems' );
-
-		// Load Flexslider
-		$( ".flexslider" ).flexslider( {
-			animation: 		"slide",
-			controlNav: 	false,
-			nextText: 		"Next",
-			prevText: 		"Previous",
-			smoothHeight: 	true
-		} );
-
-		$( document ).ready( function() {
-			setTimeout( function() {
-				$blocks.masonry();
-			}, 500 );
-		} );
 
 	} );
 
