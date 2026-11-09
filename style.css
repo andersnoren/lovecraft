@@ -5,7 +5,7 @@
 	Theme Name: Lovecraft
     Text Domain: lovecraft
 	Theme URI: https://andersnoren.se/teman/lovecraft-wordpress-theme/
-	Version: 2.1.3
+	Version: 2.1.4
 	Description: Lovecraft is a beautiful two-column theme for bloggers. It features a responsive design, great typography, Block Editor support, a full-width header image (which is replaced with the post thumbnail on single posts/pages), custom accent color support, custom logo support, editor style support, recent posts and recent comments widgets with thumbnails, and a full-width template. Demo: https://lovecraft.andersnoren.se
 	Tags: blog, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
 	Author: Anders Norén
@@ -74,8 +74,7 @@ blockquote:after {
 }
 
 input[type=search] {
-	-moz-appearance:none;
-	-webkit-appearance:none;
+	appearance: none;
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -110,10 +109,7 @@ a:hover {
 }
 
 * { 
-		-moz-box-sizing: border-box; 
-		-webkit-box-sizing: border-box; 
 	box-sizing: border-box;
-		-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
 
@@ -131,8 +127,7 @@ img {
 	color: #FFF;
 }
 
-::-webkit-input-placeholder { color: #666; }
-:-ms-input-placeholder { color: #666; }
+::placeholder { color: #666; opacity: 1; }
 
 /* Clearing ---------------------------------- */
 
@@ -350,9 +345,6 @@ address {
 
 pre {
 	white-space: pre-wrap;
-	white-space: -moz-pre-wrap;
-	white-space: -pre-wrap;
-	white-space: -o-pre-wrap;
 	word-wrap: break-word;
 	line-height: 140%;
 	padding: 2% 2.5%;
@@ -486,8 +478,7 @@ select {
 	margin: 0;
 	padding: 20px;
 	width: 100%;
-	-moz-appearance: none;
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 select {
@@ -529,7 +520,7 @@ input[type="submit"] {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	color: #fff;
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 input[type="submit"] + input[type="reset"],
@@ -954,8 +945,7 @@ input[type="submit"]:hover {
 	position: absolute;
 	bottom: -8px;
 	right: 0;
-	-webkit-transform: scale(1.0001);
-	-moz-transform: scale(1.0001);
+	transform: scale(1.0001);
 }
 
 .sticky-post:hover { 
@@ -2442,8 +2432,7 @@ div.comment {
 	}
 	
 	.toggle {
-		-moz-appearance: none;
-		-webkit-appearance: none;
+		appearance: none;
 		background-color: transparent;
 		border-radius: 0;
 		box-shadow: none;

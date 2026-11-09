@@ -78,6 +78,13 @@ Source: https://github.com/dachcom-digital/jquery-doubletaptogo
 
 == Changelog ==
 
+Version 2.1.4 (2026-11-09)
+-------------------------
+- Added an aria-expanded attribute to the menu and search toggles, so screen readers announce whether they're open, and replaced the block elements inside them with valid button content.
+- Converted the Genericons icon font from WOFF to WOFF2, which is smaller and supported by all browsers that WordPress supports.
+- Removed vendor prefixes that are no longer needed, and replaced the rest with their standard equivalents where available.
+- Fixed the placeholder text color not being applied in Firefox.
+
 Version 2.1.3 (2026-11-03)
 -------------------------
 - Tested with WordPress 7.1.
@@ -344,6 +351,9 @@ Version 1.00 (2014-01-01)
 
 
 == Upgrade Notice ==
+
+= 2.1.4 =
+Improves the accessibility of the menu and search toggles, switches the icon font to the smaller WOFF2 format, removes outdated CSS, and fixes the placeholder color in Firefox.
 
 = 2.1.3 =
 Tested with WordPress 7.1. Fixes Jetpack Infinite Scroll and the editor styles.

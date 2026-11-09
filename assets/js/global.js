@@ -2,10 +2,10 @@ jQuery( document ).ready( function( $ ) {
 
 	// Toggle mobile-menu
 	$( ".nav-toggle" ).on( "click", function() {
-		$( this ).toggleClass( "active" );
+		$( this ).toggleClass( "active" ).attr( "aria-expanded", $( this ).hasClass( "active" ) ? "true" : "false" );
 		$( ".mobile-menu" ).slideToggle();
 		if ( $( ".search-toggle" ).hasClass( "active" ) ) {
-			$( ".search-toggle" ).removeClass( "active" );
+			$( ".search-toggle" ).removeClass( "active" ).attr( "aria-expanded", "false" );
 			$( ".mobile-search" ).slideToggle();
 		}
 		return false;
@@ -13,10 +13,10 @@ jQuery( document ).ready( function( $ ) {
 
 	// Toggle mobile-search
 	$( ".search-toggle" ).on( "click", function() {
-		$( this ).toggleClass( "active" );
+		$( this ).toggleClass( "active" ).attr( "aria-expanded", $( this ).hasClass( "active" ) ? "true" : "false" );
 		$( ".mobile-search" ).slideToggle();
 		if ( $( ".nav-toggle" ).hasClass( "active" ) ) {
-			$( ".nav-toggle" ).removeClass( "active" );
+			$( ".nav-toggle" ).removeClass( "active" ).attr( "aria-expanded", "false" );
 			$( ".mobile-menu" ).slideToggle();
 		}
 		return false;
@@ -25,7 +25,7 @@ jQuery( document ).ready( function( $ ) {
 	// Hide/show mobile menu/search block > 900
 	$( window ).on( 'resize', function() {
 		if ( $( window ).width() > 1000 ) {
-			$( ".toggle" ).removeClass( "active" );
+			$( ".toggle" ).removeClass( "active" ).attr( "aria-expanded", "false" );
 			$( ".mobile-menu" ).hide();
 			$( ".mobile-search" ).hide();
 		}

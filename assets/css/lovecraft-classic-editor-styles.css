@@ -18,7 +18,6 @@ body#tinymce.wp-editor {
 
 body#tinymce.wp-editor * { 
 	box-sizing: border-box; 
-	-moz-box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -154,8 +153,6 @@ body#tinymce.wp-editor kbd,
 body#tinymce.wp-editor code {
 	padding: 5px;
 	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
 }
 
 body#tinymce.wp-editor dl { line-height: 160%; }
@@ -204,9 +201,6 @@ body#tinymce.wp-editor address {
 
 body#tinymce.wp-editor pre {
 	white-space: pre-wrap;
-	white-space: -moz-pre-wrap;
-	white-space: -pre-wrap;
-	white-space: -o-pre-wrap;
 	word-wrap: break-word;
 	line-height: 140%;
 	padding: 2% 2.5%;
@@ -348,7 +342,7 @@ body#tinymce.wp-editor textarea {
 	color: #111;
 	background: #fafafa;
 	border-radius: 0;
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 body#tinymce.wp-editor input[type="file"] {
@@ -386,7 +380,7 @@ body#tinymce.wp-editor input[type="button"] {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	color: #fff;
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 body#tinymce.wp-editor input[type="submit"] + input[type="reset"],

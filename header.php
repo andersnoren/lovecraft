@@ -68,15 +68,15 @@
 
 			<div class="toggles group">
 
-				<button type="button" class="nav-toggle toggle">
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
+				<button type="button" class="nav-toggle toggle" aria-expanded="false">
+					<span class="bar" aria-hidden="true"></span>
+					<span class="bar" aria-hidden="true"></span>
+					<span class="bar" aria-hidden="true"></span>
 					<span class="screen-reader-text"><?php _e( 'Toggle the mobile menu', 'lovecraft' ); ?></span>
 				</button>
 
-				<button type="button" class="search-toggle toggle">
-					<div class="genericon genericon-search"></div>
+				<button type="button" class="search-toggle toggle" aria-expanded="false">
+					<span class="genericon genericon-search" aria-hidden="true"></span>
 					<span class="screen-reader-text"><?php _e( 'Toggle the search field', 'lovecraft' ); ?></span>
 				</button>
 
